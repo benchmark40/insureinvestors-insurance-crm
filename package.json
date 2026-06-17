@@ -1,0 +1,25 @@
+{
+  "name": "insureinvestorsv2",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "db:generate": "turbo db:generate",
+    "db:push": "turbo db:push",
+    "db:migrate": "bun --filter @insureinvestorsv2/db db:migrate",
+    "db:studio": "bun --filter @insureinvestorsv2/db db:studio",
+    "db:seed": "bun --filter @insureinvestorsv2/db db:seed"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "dotenv-cli": "^11",
+    "turbo": "^2",
+    "typescript": "^5"
+  },
+  "packageManager": "bun@1.2.15"
+}

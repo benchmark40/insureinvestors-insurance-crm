@@ -1,0 +1,45 @@
+{
+  "name": "@insureinvestorsv2/onboarding",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "dotenv -e ../../.env -- ../../scripts/quiet-next-dev.sh 3000",
+    "build": "dotenv -e ../../.env -- next build",
+    "start": "dotenv -e ../../.env -- next start --port 3000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.2.0",
+    "@hookform/resolvers": "^3.10.0",
+    "@insureinvestorsv2/db": "workspace:*",
+    "@insureinvestorsv2/lib": "workspace:*",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@tailwindcss/postcss": "^4",
+    "better-auth": "^1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.477.0",
+    "next": "^15",
+    "next-themes": "^0.4.6",
+    "react": "^19",
+    "react-day-picker": "^10.0.0",
+    "react-dom": "^19",
+    "react-hook-form": "^7.54.2",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.0.0",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.2.0",
+    "zod": "^4"
+  },
+  "devDependencies": {
+    "@next/swc-darwin-arm64": "^15",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "shadcn": "^4",
+    "typescript": "^5"
+  }
+}

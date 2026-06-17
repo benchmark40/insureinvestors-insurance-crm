@@ -1,0 +1,1286 @@
+// =============================================================================
+// insureinvestorsv2 — canonical schema
+// Mirrors docs/development_resources/database_plan.md in the legacy repo.
+// =============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// =============================================================================
+// Auxiliary (minimal placeholders; better-auth will expand User in Phase 7)
+// =============================================================================
+
+// =============================================================================
+// Auth (better-auth) — User, Session, Account, Verification
+// =============================================================================
+
+model User {
+  id            String  @id @default(cuid())
+  email         String  @unique
+  emailVerified Boolean @default(false)
+  name          String?
+  image         String?
+
+  // app-specific
+  firstName String?
+  lastName  String?
+  phone     String?
+  isStaff   Boolean @default(false)
+  isAgent   Boolean @default(false)
+  isActive  Boolean @default(true)
+  brokerId  Int?
+  broker    Broker? @relation(fields: [brokerId], references: [id], onDelete: SetNull)
+
+  // client portal: a self-service account for an insured, linked to a Customer.
+  // Mutually exclusive with broker staff in practice — clients get no brokerId.
+  isClient   Boolean   @default(false)
+  customerId Int?
+  customer   Customer? @relation("CustomerClients", fields: [customerId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // auth back-refs
+  sessions Session[]
+  accounts Account[]
+
+  // app back-refs
+  customersAsProducer   Customer[]          @relation("CustomerProducer")
+  customersAsCsr        Customer[]          @relation("CustomerCsr")
+  submissionsAsProducer Submission[]        @relation("SubmissionProducer")
+  submissionsCreated    Submission[]        @relation("SubmissionCreatedBy")
+  policyTransactions    PolicyTransaction[]
+  policyRoles           PolicyRole[]
+  claimsReported        Claim[]
+  documentsUploaded     SubmissionDocument[]
+  proposalsCreated      Proposal[]          @relation("ProposalCreatedBy")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+}
+
+model Broker {
+  id        Int      @id @default(autoincrement())
+  domain    String   @unique
+  name      String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  customers Customer[]
+  users     User[]
+}
+
+// =============================================================================
+// Accounts
+// =============================================================================
+
+enum CustomerType {
+  commercial
+  personal
+}
+
+model Customer {
+  id        Int          @id @default(autoincrement())
+  uuid      String       @unique @default(uuid())
+  broker    Broker       @relation(fields: [brokerId], references: [id], onDelete: Restrict)
+  brokerId  Int
+  customerType CustomerType @default(commercial)
+
+  // commercial
+  businessName     String @default("")
+  dba              String @default("")
+  businessEntity   String @default("")
+  federalId        String @default("")
+  naics            String @default("")
+  sic              String @default("")
+  inBusinessSince  DateTime? @db.Date
+
+  // personal
+  firstName   String? @default("")
+  lastName    String? @default("")
+  dateOfBirth DateTime? @db.Date
+
+  // contact
+  email String @default("")
+  phone String @default("")
+
+  // mailing address
+  addressLine1 String @default("")
+  addressLine2 String @default("")
+  city         String @default("")
+  state        String @default("")
+  zipCode      String @default("")
+  county       String @default("")
+
+  // billing address
+  billAddressSameAsMailing Boolean @default(true)
+  billAddressLine1         String  @default("")
+  billAddressLine2         String  @default("")
+  billCity                 String  @default("")
+  billState                String  @default("")
+  billZipCode              String  @default("")
+
+  // default agency roles
+  defaultProducer    User?   @relation("CustomerProducer", fields: [defaultProducerId], references: [id], onDelete: SetNull)
+  defaultProducerId  String?
+  defaultCsr         User?   @relation("CustomerCsr", fields: [defaultCsrId], references: [id], onDelete: SetNull)
+  defaultCsrId       String?
+
+  isActive  Boolean  @default(true)
+  notes     String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Ascend insured id, captured the first time a proposal goes out for this customer.
+  ascendId  String?  @unique
+
+  submissions Submission[]
+  policies    Policy[]
+  invoices    Invoice[]
+  claims      Claim[]
+  proposals   Proposal[]
+  clientUsers User[]       @relation("CustomerClients")
+
+  @@index([brokerId])
+}
+
+// =============================================================================
+// Carriers
+// =============================================================================
+
+enum CompanyKind {
+  carrier
+  wholesaler
+}
+
+model Carrier {
+  id            Int         @id @default(autoincrement())
+  identifier    String?
+  // Ascend carrier slug (e.g. "ace_american_insurance_company_il_516c82"). Used
+  // as carrier_identifier when creating Ascend billables. Null until mapped.
+  ascendIdentifier String?
+  name          String
+  kind          CompanyKind @default(carrier)
+  naic          String      @default("")
+  parentCompany String      @default("")
+  addressStreet1 String     @default("")
+  addressStreet2 String     @default("")
+  addressCity    String     @default("")
+  addressState   String     @default("")
+  addressZip     String     @default("")
+  isActive      Boolean     @default(true)
+
+  parentCompanyId Int?
+  parent          Carrier?  @relation("CarrierWritingCompanies", fields: [parentCompanyId], references: [id], onDelete: SetNull)
+  writingCompanies Carrier[] @relation("CarrierWritingCompanies")
+
+  personnel       CarrierPersonnel[]
+  quotes          CarrierQuote[]    @relation("QuoteCarrier")
+  wholesalerQuotes CarrierQuote[]   @relation("QuoteWholesaler")
+  policies        Policy[]
+  loBWritingCompanies PolicyLineOfBusiness[]
+
+  @@unique([kind, identifier])
+  @@index([kind, name])
+  @@index([parentCompanyId])
+}
+
+model CarrierPersonnel {
+  id        Int     @id @default(autoincrement())
+  carrier   Carrier @relation(fields: [carrierId], references: [id], onDelete: Cascade)
+  carrierId Int
+  firstName String  @default("")
+  lastName  String  @default("")
+  email     String
+  phone     String  @default("")
+  title     String  @default("")
+  isActive  Boolean @default(true)
+
+  recipients SubmissionRecipient[]
+
+  @@index([carrierId])
+}
+
+// =============================================================================
+// Sales — submissions, carrier quotes
+// =============================================================================
+
+enum SubmissionStatus {
+  draft
+  ready
+  sent
+  partial
+  quoted
+  bound
+  declined
+  lost
+  expired
+}
+
+model Submission {
+  id         Int              @id @default(autoincrement())
+  uuid       String           @unique @default(uuid())
+  customer   Customer         @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  customerId Int
+  status     SubmissionStatus @default(draft)
+
+  targetEffectiveDate  DateTime? @db.Date
+  targetExpirationDate DateTime? @db.Date
+  linesOfBusiness      Json      @default("[]")
+
+  // named insured snapshot
+  namedInsured   String @default("")
+  businessEntity String @default("")
+  federalId      String @default("")
+
+  // submission-level underwriting context
+  yearsInBusiness       Int?
+  annualRevenue         Decimal? @db.Decimal(14, 2)
+  totalPayroll          Decimal? @db.Decimal(14, 2)
+  hasPriorCoverage      Boolean  @default(false)
+  priorCarrier          String   @default("")
+  priorExpirationDate   DateTime? @db.Date
+  claimsInLast5Years    Int      @default(0)
+
+  // service group (overview)
+  accountExecutive       String @default("")
+  accountRepresentative  String @default("")
+  accountBroker          String @default("")
+  accountProducer        String @default("")
+
+  // company type (overview)
+  parentCompany       String @default("")
+  writingCompany      String @default("")
+  companyType         String @default("")
+  underwriterContact  String @default("")
+
+  // business unit (overview)
+  division        String @default("")
+  branch          String @default("")
+  department      String @default("")
+  groupName       String @default("")
+  businessOrigin  String @default("")
+  leadSource      String @default("")
+
+  // underwriter-only fields
+  businessDescription              String  @default("")
+  additionalInsuredNames           String  @default("")
+  certificatesOfInsuranceNotes     String  @default("")
+  hasPriorLosses5y                 Boolean @default(false)
+  hasBankruptcy5y                  Boolean @default(false)
+  hasIndictmentsOrConvictions      Boolean @default(false)
+  hasCivilJudgments                Boolean @default(false)
+  operatesOtherBusinesses          Boolean @default(false)
+  hasOnlinePresence                Boolean @default(false)
+  inBusiness12moNoPriorCoverage    Boolean @default(false)
+  requiresSignedLeaseWithHoldharmless Boolean @default(false)
+  collectsCoiFromTenants           Boolean @default(false)
+  priorClaimsMoldOrAsbestos        Boolean @default(false)
+
+  producer    User?   @relation("SubmissionProducer", fields: [producerId], references: [id], onDelete: SetNull)
+  producerId  String?
+  createdBy   User?   @relation("SubmissionCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  createdById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  locations       Location[]
+  recipients      SubmissionRecipient[]
+  emailResponses  EmailResponse[]
+  proposals       Proposal[]
+  quotes          CarrierQuote[]
+  boundPolicies   Policy[]
+  contacts            SubmissionContact[]
+  otherInsurance      SubmissionOtherInsurance[]
+  lossHistory         SubmissionLossHistory[]
+  additionalInterests SubmissionAdditionalInterest[]
+  glCoverage          SubmissionGLCoverage?
+  glClassifications   SubmissionGLClassification[]
+  optionalCoverages   SubmissionOptionalCoverage[]
+  documents           SubmissionDocument[]
+
+  @@index([customerId])
+  @@index([status])
+}
+
+model SubmissionDocument {
+  id           Int        @id @default(autoincrement())
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int
+
+  filename     String
+  mimeType     String
+  sizeBytes    Int
+  storagePath  String
+
+  uploadedBy   User?    @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  uploadedById String?
+
+  uploadedAt DateTime @default(now())
+
+  @@index([submissionId])
+}
+
+enum GLFormOfCoverage {
+  occurrence
+  claims_made
+}
+
+enum GLAggregateBasis {
+  policy
+  per_location
+  per_project
+}
+
+model SubmissionGLCoverage {
+  id           Int        @id @default(autoincrement())
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int        @unique
+
+  insuranceCarrier         String           @default("Atain Specialty Insurance Company")
+  lineOfBusiness           String           @default("Commercial General Liability")
+  formOfCoverage           GLFormOfCoverage @default(occurrence)
+  carrierParticipationPct  Decimal          @default(100) @db.Decimal(5, 2)
+
+  eachOccurrenceLimit              Decimal @default(1000000) @db.Decimal(14, 2)
+  generalAggregate                 Decimal @default(2000000) @db.Decimal(14, 2)
+  productsCompletedOpsAggregate    Decimal @default(2000000) @db.Decimal(14, 2)
+  personalAdvertisingInjuryLimit   Decimal @default(1000000) @db.Decimal(14, 2)
+  medicalExpense                   Decimal @default(5000)    @db.Decimal(12, 2)
+  damageToRentedPremises           Decimal @default(100000)  @db.Decimal(14, 2)
+  aggregateBasis                   GLAggregateBasis @default(policy)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SubmissionGLClassification {
+  id           Int        @id @default(autoincrement())
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int
+  location     Location   @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  locationId   Int
+
+  classCode   String  @default("")
+  description String  @default("")
+  exposure    Decimal @default(0) @db.Decimal(14, 2)
+  rate        Decimal @default(0) @db.Decimal(10, 4)
+  premium     Decimal @default(0) @db.Decimal(14, 2)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([submissionId])
+  @@index([locationId])
+}
+
+model SubmissionOptionalCoverage {
+  id           Int        @id @default(autoincrement())
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int
+
+  name   String
+  value  Json   @default("{}")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([submissionId, name])
+  @@index([submissionId])
+}
+
+enum SubmissionContactRole {
+  primary
+  billing
+  claims
+  loss_control
+  other
+}
+
+model SubmissionContact {
+  id           Int                   @id @default(autoincrement())
+  submission   Submission            @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int
+  role         SubmissionContactRole @default(primary)
+  name         String                @default("")
+  title        String                @default("")
+  email        String                @default("")
+  phone        String                @default("")
+  addressLine1 String                @default("")
+  city         String                @default("")
+  state        String                @default("")
+  zipCode      String                @default("")
+  notes        String                @default("")
+  createdAt    DateTime              @default(now())
+  updatedAt    DateTime              @updatedAt
+
+  // Ascend contact id, captured when this contact is synced as primary on a proposal.
+  ascendId     String?
+
+  @@index([submissionId])
+}
+
+model SubmissionOtherInsurance {
+  id                   Int        @id @default(autoincrement())
+  submission           Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId         Int
+  carrierName          String     @default("")
+  lineOfBusiness       String     @default("")
+  policyNumber         String     @default("")
+  planType             String     @default("")
+  policyEffectiveDate  DateTime?  @db.Date
+  policyExpirationDate DateTime?  @db.Date
+  premium              Decimal?   @db.Decimal(14, 2)
+  notes                String     @default("")
+  createdAt            DateTime   @default(now())
+  updatedAt            DateTime   @updatedAt
+
+  @@index([submissionId])
+}
+
+model SubmissionLossHistory {
+  id              Int        @id @default(autoincrement())
+  submission      Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId    Int
+  carrierName     String     @default("")
+  policyNumber    String     @default("")
+  lineOfBusiness  String     @default("")
+  dateOfLoss      DateTime?  @db.Date
+  reportedDate    DateTime?  @db.Date
+  kindOfLoss      String     @default("")
+  description     String     @default("")
+  claimStatus     String     @default("")
+  amountOfLoss    Decimal?   @db.Decimal(14, 2)
+  amountPaid      Decimal?   @db.Decimal(14, 2)
+  amountReserved  Decimal?   @db.Decimal(14, 2)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@index([submissionId])
+}
+
+model SubmissionAdditionalInterest {
+  id                      Int        @id @default(autoincrement())
+  submission              Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId            Int
+  interestType            String     @default("")
+  name                    String     @default("")
+  contactName             String     @default("")
+  email                   String     @default("")
+  phone                   String     @default("")
+  addressLine1            String     @default("")
+  city                    String     @default("")
+  state                   String     @default("")
+  zipCode                 String     @default("")
+  descriptionOfOperations String     @default("")
+  isBonded                Boolean    @default(false)
+  isLicensed              Boolean    @default(false)
+  certificateRequired     Boolean    @default(false)
+  certificateIssued       Boolean    @default(false)
+  notes                   String     @default("")
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+
+  @@index([submissionId])
+}
+
+enum SubmissionRecipientStatus {
+  pending
+  sent
+  failed
+  replied
+  declined
+  received_quote
+}
+
+model SubmissionRecipient {
+  id            Int                       @id @default(autoincrement())
+  submission    Submission                @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId  Int
+  personnel     CarrierPersonnel          @relation(fields: [personnelId], references: [id], onDelete: Restrict)
+  personnelId   Int
+  sentAt        DateTime?
+  emailSubject  String                    @default("")
+  emailBody     String                    @default("")
+  status        SubmissionRecipientStatus @default(pending)
+  declineReason String                    @default("")
+
+  // Graph-side identifiers so we can pair inbound replies to this outbound.
+  // All recipients sent in one Graph send share the same conversationId.
+  messageId      String?
+  conversationId String?
+  lastReplyAt    DateTime?
+
+  quotes CarrierQuote[]
+
+  @@index([submissionId])
+  @@index([personnelId])
+  @@index([conversationId])
+}
+
+// =============================================================================
+// Inbound email — replies and attachments tied to a SubmissionRecipient thread
+// =============================================================================
+
+model EmailResponse {
+  id              Int      @id @default(autoincrement())
+  submission      Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId    Int
+  conversationId  String
+  messageId       String   @unique
+  receivedAt      DateTime
+  senderEmail     String
+  senderName      String   @default("")
+  subject         String   @default("")
+  body            String   @default("")
+  bodyContentType String   @default("text") // "text" or "html"
+  isFromUs        Boolean  @default(false)
+  isDraft         Boolean  @default(false)
+  processedAt     DateTime?
+
+  attachments EmailAttachment[]
+
+  @@index([submissionId])
+  @@index([conversationId])
+}
+
+enum EmailAttachmentClassification {
+  unclassified
+  quote
+  rejection
+  needs_information
+  other
+}
+
+model EmailAttachment {
+  id              Int           @id @default(autoincrement())
+  emailResponse   EmailResponse @relation(fields: [emailResponseId], references: [id], onDelete: Cascade)
+  emailResponseId Int
+  filename        String
+  contentType     String        @default("application/octet-stream")
+  sizeBytes       Int           @default(0)
+  storageKey      String // path relative to the attachments root, e.g. 2026/05/uuid-name.pdf
+  classification  EmailAttachmentClassification @default(unclassified)
+  createdAt       DateTime      @default(now())
+
+  @@index([emailResponseId])
+}
+
+// =============================================================================
+// Microsoft Graph subscription bookkeeping
+// =============================================================================
+
+enum GraphSubscriptionStatus {
+  active
+  expired
+  error
+  cancelled
+}
+
+model GraphSubscription {
+  id             Int                     @id @default(autoincrement())
+  subscriptionId String                  @unique
+  resource       String
+  expirationAt   DateTime
+  clientState    String
+  status         GraphSubscriptionStatus @default(active)
+  createdAt      DateTime                @default(now())
+  updatedAt      DateTime                @updatedAt
+}
+
+enum CarrierQuoteStatus {
+  received
+  reviewing
+  accepted
+  rejected
+  withdrawn
+  bound
+  expired
+}
+
+model CarrierQuote {
+  id            Int                @id @default(autoincrement())
+  submission    Submission         @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId  Int
+  carrier       Carrier            @relation("QuoteCarrier", fields: [carrierId], references: [id], onDelete: Restrict)
+  carrierId     Int
+  wholesaler    Carrier?           @relation("QuoteWholesaler", fields: [wholesalerId], references: [id], onDelete: SetNull)
+  wholesalerId  Int?
+  recipient     SubmissionRecipient? @relation(fields: [recipientId], references: [id], onDelete: SetNull)
+  recipientId   Int?
+
+  quoteNumber     String    @default("")
+  effectiveDate   DateTime? @db.Date
+  expirationDate  DateTime? @db.Date
+
+  premium           Decimal @default(0) @db.Decimal(14, 2)
+  policyFee         Decimal @default(0) @db.Decimal(12, 2)
+  otherFees         Decimal @default(0) @db.Decimal(12, 2)
+  taxes             Decimal @default(0) @db.Decimal(12, 2)
+  wholesalerFee     Decimal @default(0) @db.Decimal(12, 2)
+  commissionPct     Decimal @default(0) @db.Decimal(7, 4)
+  commissionAmount  Decimal @default(0) @db.Decimal(12, 2)
+  minimumEarnedPct  Decimal @default(0) @db.Decimal(5, 2)
+
+  coveragesSummary Json @default("{}")
+
+  status     CarrierQuoteStatus @default(received)
+  receivedAt DateTime?
+  notes      String             @default("")
+  createdAt  DateTime           @default(now())
+  updatedAt  DateTime           @updatedAt
+
+  documents       QuoteDocument[]
+  resultingPolicies Policy[]
+  proposalQuotes  ProposalQuote[]
+
+  @@index([submissionId])
+  @@index([carrierId])
+  @@index([status])
+}
+
+enum QuoteDocumentType {
+  quote_letter
+  binder
+  application
+  supplement
+  other
+}
+
+model QuoteDocument {
+  id        Int               @id @default(autoincrement())
+  quote     CarrierQuote      @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  quoteId   Int
+  fileUrl   String                                  // S3 / blob URL
+  filename  String            @default("")
+  docType   QuoteDocumentType @default(other)
+  uploadedAt DateTime         @default(now())
+
+  @@index([quoteId])
+}
+
+// =============================================================================
+// Proposals — bundle accepted CarrierQuotes for client presentation
+// =============================================================================
+
+enum ProposalStatus {
+  draft
+  presented
+  accepted
+  declined
+  expired
+  cancelled
+}
+
+model Proposal {
+  id           Int            @id @default(autoincrement())
+  uuid         String         @unique @default(uuid())
+  /// Public token used in the customer-facing /proposal/[token] URL.
+  token        String         @unique @default(uuid())
+
+  submission   Submission     @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int
+  customer     Customer       @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  customerId   Int
+
+  status       ProposalStatus @default(draft)
+
+  // Broker-editable presentation copy.
+  title              String  @default("")
+  executiveSummary   String  @default("")
+  coverageHighlights String  @default("")
+
+  // Presentation-only premium split by named insured. When on, the customer
+  // proposal view shows each named insured's allocated share (manual amounts
+  // keyed by namedInsured); the Ascend checkout still bills the full total.
+  splitByNamedInsured Boolean @default(false)
+  namedInsuredSplits  Json    @default("{}")
+
+  // Optional contact-info snapshot used when generating the proposal.
+  contactName    String @default("")
+  contactEmail   String @default("")
+  contactPhone   String @default("")
+  contactAddress String @default("")
+
+  // Ascend program bookkeeping, populated when status flips draft -> presented.
+  ascendProgramId      String?
+  paymentProposalUrl   String?
+  programCheckoutUrl   String?
+
+  presentedAt DateTime?
+  acceptedAt  DateTime?
+  cancelledAt DateTime?
+  expiresAt   DateTime?
+
+  createdBy   User?    @relation("ProposalCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  createdById String?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  quotes ProposalQuote[]
+
+  @@index([submissionId])
+  @@index([customerId])
+  @@index([status])
+}
+
+model ProposalQuote {
+  id              Int          @id @default(autoincrement())
+  proposal        Proposal     @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+  proposalId      Int
+  carrierQuote    CarrierQuote @relation(fields: [carrierQuoteId], references: [id], onDelete: Restrict)
+  carrierQuoteId  Int
+
+  /// Properties this quote covers. Empty = "whole submission" (all locations).
+  /// Non-empty = the subset of locations this carrier wrote the quote for.
+  locations       Location[]   @relation("ProposalQuoteLocations")
+
+  sortOrder       Int          @default(0)
+  notes           String       @default("")
+
+  /// Captured after Ascend's POST /v1/billables succeeds for this quote.
+  ascendBillableId String?
+
+  @@unique([proposalId, carrierQuoteId])
+  @@index([proposalId])
+  @@index([carrierQuoteId])
+}
+
+// =============================================================================
+// Locations & buildings — the property-centric core
+// =============================================================================
+
+enum OccupancyClass {
+  none
+  adult_day_care
+  adult_entertainment_club
+  agriculture
+  arts_entertainment_recreation
+  auto_repair_or_sales
+  aviation_or_aerospace
+  bowling_alley
+  children_playcenter
+  church_or_worship
+  daycare
+  detective_or_investigative
+  distillery_or_liquor
+  mobile_or_manufactured_home
+  nursing_home
+  paint_sales_or_mixing
+  rehabilitation_housing
+  shelter
+  sorority_or_fraternity
+}
+
+model Location {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  // polymorphic anchor — exactly one of submissionId / policyId is set
+  // (validated in application code; Prisma has no CHECK constraint support)
+  submission   Submission? @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  submissionId Int?
+  policy       Policy?     @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  policyId     Int?
+
+  sourceLocation   Location?  @relation("LocationCopiedFrom", fields: [sourceLocationId], references: [id], onDelete: SetNull)
+  sourceLocationId Int?
+  copiedTo         Location[] @relation("LocationCopiedFrom")
+
+  locationNumber Int @default(1)
+
+  // the legal entity insured at this property (may differ per location)
+  namedInsured String @default("")
+
+  // address
+  addressLine1 String   @default("")
+  addressLine2 String   @default("")
+  city         String   @default("")
+  state        String   @default("")
+  zipCode      String   @default("")
+  county       String   @default("")
+  latitude     Decimal? @db.Decimal(10, 7)
+  longitude    Decimal? @db.Decimal(10, 7)
+
+  // site-level facts
+  interestType            String  @default("")
+  occupancy               String  @default("")
+  protectionClass         String  @default("")
+  coastalClass            String  @default("")
+  tierRate                String  @default("")
+  fireDistrict            String  @default("")
+  hydrantDistanceFt       Int?
+  fireStationDistanceMi   Decimal? @db.Decimal(6, 2)
+
+  // risk enrichment (cached from external API)
+  floodRisk         String  @default("")
+  floodRiskAmount   Decimal? @db.Decimal(12, 2)
+  fireRisk          String  @default("")
+  fireRiskAmount    Decimal? @db.Decimal(12, 2)
+  windRisk          String  @default("")
+  windRiskAmount    Decimal? @db.Decimal(12, 2)
+  hailRisk          String  @default("")
+  hailRiskAmount    Decimal? @db.Decimal(12, 2)
+  crimeRisk         String  @default("")
+  crimeRiskAmount   Decimal? @db.Decimal(12, 2)
+
+  // real-estate enrichment
+  // RealEstateAPI property id, captured when an address is picked. Lets us
+  // re-pull PropertyDetail to autofill additional buildings on this property.
+  reapiPropertyId   String  @default("")
+  marketValue       Decimal? @db.Decimal(14, 2)
+  landValue         Decimal? @db.Decimal(14, 2)
+  estimatedEquity   Decimal? @db.Decimal(14, 2)
+  mortgageBalance   Decimal? @db.Decimal(14, 2)
+
+  // mortgagee
+  mortgageeName String  @default("")
+  loanNumber    String  @default("")
+  escrowed      Boolean @default(false)
+
+  // site-level underwriter hazard / situational flags
+  commercialCookingExposure    Boolean @default(false)
+  vacancyPresent               Boolean @default(false)
+  demolitionPlanned            Boolean @default(false)
+  renovationDuringPolicyTerm   Boolean @default(false)
+  nfpaNoncompliant             Boolean @default(false)
+  occupancyBelow60pct          Boolean @default(false)
+  tenantOwnedByApplicant       Boolean @default(false)
+  breachedBuildingCodes5y      Boolean @default(false)
+  hasHazardousChemicalsTenant  Boolean @default(false)
+  warehouseOtherThanGeneral    Boolean @default(false)
+  warehouseOtherUseDescription String  @default("")
+
+  occupancyClass OccupancyClass @default(none)
+
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  buildings Building[]
+  contactAttachments PolicyContact[]
+  claims    Claim[]
+  glClassifications SubmissionGLClassification[]
+  proposalQuotes ProposalQuote[] @relation("ProposalQuoteLocations")
+
+  @@index([submissionId])
+  @@index([policyId])
+}
+
+model Building {
+  id             Int      @id @default(autoincrement())
+  location       Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  locationId     Int
+  buildingNumber Int      @default(1)
+  name           String   @default("")
+
+  // use
+  propertyType     String   @default("")
+  propertyUsage    String   @default("")
+  tenantType       String   @default("")
+  occupancyPercent Decimal? @db.Decimal(5, 2)
+  numUnits         Int?
+  numStories       Int?
+
+  // size
+  totalSqft     Int?
+  yearBuilt     Int?
+  yearRenovated Int?
+
+  // construction
+  constructionType    String @default("")
+  roofType            String @default("")
+  roofCoveringType    String @default("")
+  roofCoveringYear    Int?
+
+  // systems
+  electricalType String @default("")
+  electricalYear Int?
+  plumbingType   String @default("")
+  plumbingYear   Int?
+  hvacType       String @default("")
+  hvacYear       Int?
+
+  // protection
+  sprinklered           Boolean  @default(false)
+  sprinklerCoveragePct  Decimal? @db.Decimal(5, 2)
+  burglarAlarmType      String   @default("")
+  fireAlarmType         String   @default("")
+
+  // condition
+  propertyCondition String  @default("")
+  buildingExterior  String  @default("")
+  pool              Boolean @default(false)
+  walkwaysDriveways String  @default("")
+  fireProtection    String  @default("")
+
+  // valuation
+  insurableValue     Decimal? @db.Decimal(14, 2)
+  replacementCost    Decimal? @db.Decimal(14, 2)
+  replacementPerSqft Decimal? @db.Decimal(10, 2)
+  suggestedRent      Decimal? @db.Decimal(12, 2)
+
+  // discount/credit modifiers — output of rating engine, not user input
+  discountFactors Json @default("{}")
+  // carrier-specific underwriting fields that don't generalize
+  supplemental    Json @default("{}")
+
+  // underwriter-only hazard flags
+  hazardKnobAndTubeWiring     Boolean @default(false)
+  hazardFuses                 Boolean @default(false)
+  hazardFederalPacificPanel   Boolean @default(false)
+  hazardZinscoPanel           Boolean @default(false)
+  hazardPigtailWiring         Boolean @default(false)
+  hazardAluminumWiring        Boolean @default(false)
+  hazardPolybutylenePlumbing  Boolean @default(false)
+  hazardSteelIronPlumbing     Boolean @default(false)
+  hazardEifsOver20pct         Boolean @default(false)
+  overThreeStories            Boolean @default(false)
+  preExistingDamage           Boolean @default(false)
+  hazardNoCentralStationAlarm Boolean @default(false)
+  hazardSupplementalHeating   Boolean @default(false)
+
+  coverages BuildingCoverage[]
+
+  @@index([locationId])
+}
+
+// =============================================================================
+// Policy — header + transaction log
+// =============================================================================
+
+model Policy {
+  id   Int    @id @default(autoincrement())
+  uuid String @unique @default(uuid())
+
+  customer    Customer      @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  customerId  Int
+  submission  Submission?   @relation(fields: [submissionId], references: [id], onDelete: SetNull)
+  submissionId Int?
+  boundQuote  CarrierQuote? @relation(fields: [boundQuoteId], references: [id], onDelete: SetNull)
+  boundQuoteId Int?
+
+  carrier   Carrier @relation(fields: [carrierId], references: [id], onDelete: Restrict)
+  carrierId Int
+
+  policyNumber       String @default("")
+  masterPolicyNumber String @default("")
+
+  inceptionDate    DateTime @db.Date
+  expirationDate   DateTime @db.Date
+  isContinuous     Boolean  @default(false)
+
+  priorPolicy   Policy?  @relation("PolicyRenewals", fields: [priorPolicyId], references: [id], onDelete: SetNull)
+  priorPolicyId Int?
+  renewedBy     Policy[] @relation("PolicyRenewals")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  transactions      PolicyTransaction[]
+  linesOfBusiness   PolicyLineOfBusiness[]
+  locations         Location[]
+  roles             PolicyRole[]
+  contacts          PolicyContact[]
+  claims            Claim[]
+
+  @@index([customerId])
+  @@index([carrierId])
+}
+
+enum PolicyTransactionType {
+  new_business
+  endorsement
+  cancellation
+  reinstatement
+  renewal
+  rewrite
+  audit
+}
+
+enum PolicyTransactionStatus {
+  pending
+  in_force
+  voided
+  superseded
+}
+
+model PolicyTransaction {
+  id              Int                     @id @default(autoincrement())
+  policy          Policy                  @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  policyId        Int
+  transactionType PolicyTransactionType
+  status          PolicyTransactionStatus @default(pending)
+
+  effectiveDate DateTime @db.Date
+  enteredDate   DateTime @default(now()) @db.Date
+  reason        String   @default("")
+  description   String   @default("")
+
+  premiumChange Decimal @default(0) @db.Decimal(14, 2)
+  feeChange     Decimal @default(0) @db.Decimal(12, 2)
+  taxChange     Decimal @default(0) @db.Decimal(12, 2)
+
+  priorTransaction   PolicyTransaction?  @relation("TxnChain", fields: [priorTransactionId], references: [id], onDelete: SetNull)
+  priorTransactionId Int?
+  subsequent         PolicyTransaction[] @relation("TxnChain")
+
+  enteredBy   User?   @relation(fields: [enteredById], references: [id], onDelete: SetNull)
+  enteredById String?
+
+  createdAt DateTime @default(now())
+
+  buildingCoverages BuildingCoverage[]
+  invoice           Invoice?
+
+  @@index([policyId])
+  @@index([transactionType, status])
+}
+
+model PolicyLineOfBusiness {
+  id             Int       @id @default(autoincrement())
+  policy         Policy    @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  policyId       Int
+  code           String                              // 'PROP', 'GL', 'AUTO', 'WC', 'UMB', 'CRIME'
+  name           String
+  effectiveDate  DateTime  @db.Date
+  expirationDate DateTime? @db.Date
+  writingCompany Carrier?  @relation(fields: [writingCompanyId], references: [id], onDelete: SetNull)
+  writingCompanyId Int?
+
+  buildingCoverages BuildingCoverage[]
+  contactAttachments PolicyContact[]
+
+  @@index([policyId])
+}
+
+enum CoverageType {
+  building
+  contents
+  business_income
+  loss_of_rent
+  other_structures
+  flood
+  wind
+  equipment_breakdown
+  ordinance_or_law
+}
+
+model BuildingCoverage {
+  id            Int                  @id @default(autoincrement())
+  transaction   PolicyTransaction    @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+  transactionId Int
+  building      Building             @relation(fields: [buildingId], references: [id], onDelete: Cascade)
+  buildingId    Int
+  lineOfBusiness PolicyLineOfBusiness @relation(fields: [lineOfBusinessId], references: [id], onDelete: Restrict)
+  lineOfBusinessId Int
+
+  coverageType    CoverageType
+  limit           Decimal  @default(0) @db.Decimal(14, 2)
+  deductible      Decimal? @db.Decimal(12, 2)
+  coinsurancePct  Int?
+  valuationBasis  String   @default("")
+  premium         Decimal  @default(0) @db.Decimal(12, 2)
+  sortOrder       Int      @default(0)
+
+  @@index([transactionId])
+  @@index([buildingId])
+}
+
+enum PolicyRoleType {
+  producer
+  csr
+  account_exec
+  underwriter
+  broker
+}
+
+model PolicyRole {
+  id            Int             @id @default(autoincrement())
+  policy        Policy          @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  policyId      Int
+  user          User            @relation(fields: [userId], references: [id], onDelete: Restrict)
+  userId        String
+  role          PolicyRoleType
+  commissionPct Decimal?        @db.Decimal(7, 4)
+  effectiveDate DateTime        @db.Date
+  endDate       DateTime?       @db.Date
+
+  @@index([policyId])
+  @@index([userId])
+}
+
+enum PolicyContactRole {
+  named_insured
+  additional_named_insured
+  additional_insured
+  certificate_holder
+  loss_payee
+  mortgagee
+}
+
+model PolicyContact {
+  id        Int               @id @default(autoincrement())
+  policy    Policy            @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  policyId  Int
+  role      PolicyContactRole
+  isPrimary Boolean           @default(false)
+
+  name         String
+  addressLine1 String @default("")
+  addressLine2 String @default("")
+  city         String @default("")
+  state        String @default("")
+  zipCode      String @default("")
+  email        String @default("")
+  phone        String @default("")
+
+  attachedToLineOfBusiness   PolicyLineOfBusiness? @relation(fields: [attachedToLineOfBusinessId], references: [id], onDelete: SetNull)
+  attachedToLineOfBusinessId Int?
+  attachedToLocation         Location?             @relation(fields: [attachedToLocationId], references: [id], onDelete: SetNull)
+  attachedToLocationId       Int?
+
+  effectiveDate DateTime? @db.Date
+  endDate       DateTime? @db.Date
+
+  @@index([policyId])
+}
+
+// =============================================================================
+// Money
+// =============================================================================
+
+enum InvoiceBillMethod {
+  agency_bill
+  direct_bill
+}
+
+enum InvoiceStatus {
+  open
+  partially_paid
+  paid
+  voided
+  written_off
+}
+
+model Invoice {
+  id            Int               @id @default(autoincrement())
+  transaction   PolicyTransaction @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+  transactionId Int               @unique
+  customer      Customer          @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  customerId    Int
+
+  invoiceNumber String   @unique
+  invoiceDate   DateTime @db.Date
+  dueDate       DateTime @db.Date
+  billMethod    InvoiceBillMethod @default(agency_bill)
+
+  premiumAmount Decimal @default(0) @db.Decimal(14, 2)
+  fees          Decimal @default(0) @db.Decimal(12, 2)
+  taxes         Decimal @default(0) @db.Decimal(12, 2)
+  commission    Decimal @default(0) @db.Decimal(12, 2)
+  total         Decimal @default(0) @db.Decimal(14, 2)
+  amountPaid    Decimal @default(0) @db.Decimal(14, 2)
+
+  status     InvoiceStatus @default(open)
+  closedDate DateTime?     @db.Date
+  notes      String        @default("")
+  createdAt  DateTime      @default(now())
+
+  @@index([customerId])
+  @@index([status])
+}
+
+// =============================================================================
+// Service
+// =============================================================================
+
+enum ClaimStatus {
+  reported
+  open
+  investigating
+  pending_payment
+  closed
+  denied
+  reopened
+}
+
+model Claim {
+  id         Int       @id @default(autoincrement())
+  customer   Customer  @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  customerId Int
+  policy     Policy?   @relation(fields: [policyId], references: [id], onDelete: SetNull)
+  policyId   Int?
+  location   Location? @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  locationId Int?
+
+  claimNumber        String   @default("")
+  carrierClaimNumber String   @default("")
+  dateOfLoss         DateTime @db.Date
+  dateReported       DateTime @default(now()) @db.Date
+  typeOfLoss         String   @default("")
+  description        String   @default("")
+  amountOfLoss       Decimal? @db.Decimal(14, 2)
+  lossReserves       Decimal? @db.Decimal(14, 2)
+
+  status       ClaimStatus @default(reported)
+  reportedBy   User?       @relation(fields: [reportedById], references: [id], onDelete: SetNull)
+  reportedById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([customerId])
+  @@index([policyId])
+  @@index([status])
+}

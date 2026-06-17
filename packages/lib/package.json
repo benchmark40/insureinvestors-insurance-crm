@@ -1,0 +1,17 @@
+{
+  "name": "@insureinvestorsv2/lib",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@insureinvestorsv2/db": "workspace:*",
+    "zod": "^4"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

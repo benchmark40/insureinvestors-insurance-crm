@@ -1,0 +1,567 @@
+our_id,our_name,tier,score,ascend_identifier,ascend_title
+4622,1st National. Insurance Company of America,weak,0.518,1st_auto_casualty_insurance_madison_55a1c3,1st Auto & Casualty Insurance
+3549,ACCC Insurance Company,none,0.3,,
+4070,ACCEPTANCE,exact,1.0,acceptance_indemnity_insurance_company_raleigh_ece1ab,Acceptance Indemnity Insurance Company
+3569,ACCIDENT FUND GENERAL,weak,0.706,accident_fund_insurance_co_of_america_lansing_8a33bf,Accident Fund Insurance Co. of America
+3570,ACCIDENT FUND INSURANCE COMPANY OF AMERICA,exact,1.0,accident_fund_insurance_co_of_america_lansing_8a33bf,Accident Fund Insurance Co. of America
+3571,ACCIDENT FUND NATIONAL,exact,1.0,accident_fund_insurance_co_of_america_lansing_8a33bf,Accident Fund Insurance Co. of America
+3555,ACE Westchester Specialty Group,exact,1.0,ace_westchester_new_orleans_8c1cd3,ACE Westchester
+4121,AIG PROPERTY CASUALTY COMPANY,exact,1.0,aig_new_york_8446bc,AIG
+3556,AMC fairmont insurance services,none,0.233,,
+4709,AMERICAN COMPENSATION INS. CO.,weak,0.6,pacific_compensation_insurance_company_westlake_vlg_c9ff87,Pacific Compensation Insurance Company
+3991,AMERICAN GENERAL LIFE INSURANCE COMPANY,exact,1.0,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4260,AMERICAN MERCURY INSURANCE COMPANY,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4261,AMERICAN MERCURY LLOYDS INSURANCE COMPANY,weak,0.567,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+3557,"ATTUNE INSURANCE SERVICES,LLC",none,0.229,,
+3563,"AXIOM INSURANCE, LLC",none,0.3,,
+4460,Accelerant National Insurance Company,exact,1.0,accelerant_national_insurance_company_sandy_springs_cac74b,Accelerant National Insurance Company
+4638,Acceptance Casualty Insurance Company,exact,1.0,acceptance_indemnity_insurance_company_raleigh_ece1ab,Acceptance Indemnity Insurance Company
+3564,Access Insurance Company,exact,1.0,american_access_casualty_co_downers_grove_026a8a,American Access Casualty Co
+3568,Accident Fund Insurance Company of America 1,strong,0.771,accident_fund_insurance_co_of_america_lansing_8a33bf,Accident Fund Insurance Co. of America
+3572,Accident Insurance Company,exact,1.0,accident_insurance_company_oak_ridge_569743,Accident Insurance Company
+3840,Accredited Specialty Insurance Co.,exact,1.0,accredited_specialty_insurance_company_vero_beach_183a09,Accredited Specialty Insurance Company
+3558,Accredited Surety and Casualty Co Inc,exact,1.0,accredited_surety_and_casualty_company_inc_winter_park_73eb46,Accredited Surety and Casualty Company Inc
+4135,Accredited Surety and Casualty Company Inc,exact,1.0,accredited_surety_and_casualty_company_inc_winter_park_73eb46,Accredited Surety and Casualty Company Inc
+3573,Aetna Inc.,exact,1.0,aetna_hartford_c2f9f3,Aetna
+3574,Affluent Insurance Program LLC,none,0.476,,
+4920,Agricultural Workers Mutual Auto Insurance Co,exact,1.0,agricultural_workers_mutual_auto_insurance_company_fort_worth_807090,Agricultural Workers Mutual Auto Insurance Company
+3615,Allstate Assur Co,exact,1.0,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3616,Allstate County Mutual Ins Company,weak,0.578,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3617,Allstate Fire & Cas Ins Co,exact,1.0,allstate_fire_casualty_northbrook_c3c099,Allstate Fire & Casualty
+3618,Allstate Ind Co,exact,1.0,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3614,Allstate Insurance Company,exact,1.0,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3619,Allstate Life Ins Co,exact,1.0,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3620,Allstate Life Ins Co Of NY,weak,0.637,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3621,"Allstate Motor Club, Inc.",none,0.437,,
+3622,Allstate NJ Ins Co,weak,0.637,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3623,Allstate Prop & Cas Ins Co,weak,0.605,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3624,Allstate Texas Lloyd's,weak,0.631,allstate_texas_lloyds_irving_f4db02,Allstate Texas Lloyds
+3625,Allstate Vehicle Property Insurance Company,weak,0.567,allstate_insurance_company_farmingville_7237c6,Allstate Insurance Company
+3626,Allstate of New Jersey Property & Casualty,weak,0.574,drive_new_jersey_insurance_company_cleveland_a3f485,Drive New Jersey Insurance Company
+3804,AmGUARD Ins Co,exact,1.0,amguard_insurance_company_wilkes_barre_0aac37,Amguard Insurance Company
+3632,AmSuisse LLC,none,0.235,,
+3634,AmTrust Insurance Co.,exact,1.0,amtrust_insurance_dallas_cd6750,AmTrust  Insurance
+3635,AmTrust Insurance Company of Kansas,weak,0.567,amtrust_insurance_dallas_cd6750,AmTrust  Insurance
+3636,AmTrust International Underwriters Ltd.,exact,1.0,amtrust_international_underwriters_ltd_new_york_a3d2e4,AmTrust  International Underwriters Ltd
+3633,"AmTrust North America,Inc",weak,0.58,amtrust_insurance_dallas_cd6750,AmTrust  Insurance
+3637,Amanda  Reyna,none,0.224,,
+4187,America Fire and Casualty Co.,exact,1.0,american_fire_casualty_company_boston_963d82,American Fire & Casualty Company
+4188,America First,exact,1.0,america_first_insurance_richardson_3f2659,America First Insurance
+3930,American Casualty Co. of Reading PA,exact,1.0,american_casualty_co_of_reading_pa_maitland_c36f31,"American Casualty Co. of Reading, PA"
+4623,American Economy,exact,1.0,american_economy_insurance_company_boston_4b026e,American Economy Insurance Company
+3841,American Empire Surplus Lines Insurance Co.,exact,1.0,american_empire_surplus_lines_insurance_company_cincinnati_587cbd,American Empire Surplus Lines Insurance Company
+4094,American Federation Ins. Co,exact,1.0,american_federation_insurance_company_wilmington_522c9c,American Federation Insurance Company
+3692,American General Company,exact,1.0,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4944,American Guarantee & Liability Insurance Co.,exact,1.0,american_guarantee_and_liability_insurance_company_schaumburg_66c1de,American Guarantee and Liability Insurance Company
+3715,American Insterstate Insurance Company,none,0.381,,
+3693,American Interstate Ins. Co.,exact,1.0,american_interstate_insurance_deridder_e76e6f,American Interstate Insurance
+3694,American Interstate Ins. Co. of Texas,weak,0.608,american_interstate_insurance_deridder_e76e6f,American Interstate Insurance
+3696,American National Life Insurance,none,0,,
+4624,American Preferred,weak,0.557,employers_preferred_insurance_company_los_angeles_b49197,Employers Preferred Insurance Company
+3697,American Risk Insurance Co,none,0,,
+3698,American Southwest Insurance,none,0.418,,
+4625,American States Insurance,exact,1.0,american_states_insurance_company_boston_8fb414,American States Insurance Company
+4626,American States Lloyds Insurance Co.,weak,0.553,american_national_lloyds_insurance_company_league_city_9fa91f,American National Lloyds Insurance Company
+4627,American States of Texas,exact,1.0,american_states_insurance_company_of_texas_boston_9377e4,American States Insurance Company of Texas
+3747,American Summit Ins.Co,exact,1.0,american_summit_insurance_company_scottsdale_0fb104,American Summit Insurance Company
+4945,American Zurich Insurance Company,exact,1.0,american_zurich_insurance_company_schaumburg_fbd926,American Zurich Insurance Company
+3714,"Amerisafe, Inc.",none,0.311,,
+3842,"Amrisc, LLC",none,0.333,,
+3716,Anchor Insurance,none,0.267,,
+4898,Apogee Insurance Group,exact,1.0,apogee_insurance_group_wayne_9629dc,Apogee Insurance Group
+3843,Arch Specialty Insurance Company,exact,1.0,arch_insurance_company_kansas_city_8e6cc4,Arch Insurance Company
+3638,AretaMarie Stoddart,none,0.213,,
+3844,Ascot Specialty Insurance Company,exact,1.0,ascot_insurance_company_new_york_94c727,Ascot Insurance Company
+3639,Associated Industries Insurance Co.,exact,1.0,associated_industries_insurance_company_boca_raton_616499,Associated Industries Insurance Company
+4946,Assurance Company of America,none,0,,
+3739,Assurant Flood Ins,none,0.486,,
+3742,Assurity,exact,1.0,assurity_life_insurance_company_lincoln_046820,Assurity Life Insurance Company
+3845,Ategrity Specialty Insurance Co.,exact,1.0,ategrity_specialty_insurance_company_scottsdale_183c8f,Ategrity Specialty Insurance Company
+3746,Atlas General Agency Insurance,exact,1.0,atlas_general_agency_ft_lauderdale_6e64c3,Atlas General Agency
+3748,Atlas Genral Agency Insurance,weak,0.69,atlas_general_agency_ft_lauderdale_6e64c3,Atlas General Agency
+4639,Auros Reciprocal Insurance Exchange,weak,0.645,calais_reciprocal_insurance_exchange_nashville_c5a1e3,CALAIS RECIPROCAL INSURANCE EXCHANGE
+4809,Automobile Ins Co. of Hartford,weak,0.576,american_automobile_insurance_company_chicago_f35376,American Automobile Insurance Company
+4921,Aventus Insurance Company,none,0.267,,
+3846,Axis Surplus Insurance Company,weak,0.5,axis_insurance_chicago_e12f17,AXIS Insurance
+4710,BEACON LLOYDS INSURANCE COMPANY,weak,0.553,american_national_lloyds_insurance_company_league_city_9fa91f,American National Lloyds Insurance Company
+4071,BENCHMARK,exact,1.0,benchmark_insurance_company_overland_park_4bd44f,Benchmark Insurance Company
+4711,BLOOMINGTON COMPENSATION INS. CO.,none,0.461,,
+3755,Banker's Specialty Insurance Company,none,0.45,,
+3756,Bankers Insurance Comp,weak,0.595,american_bankers_insurance_company_kalispell_61b44c,American Bankers Insurance Company
+3754,Bankers Insurance Company,exact,1.0,american_bankers_insurance_company_kalispell_61b44c,American Bankers Insurance Company
+3759,Banner,none,0.308,,
+3847,Beazley Excess and Surplus Insurance Inc,exact,1.0,beazley_excess_and_surplus_insurance_inc_west_hartford_c31b9e,"Beazley Excess and Surplus Insurance, Inc."
+3994,Benchmark Insurance Company,exact,1.0,benchmark_insurance_company_overland_park_4bd44f,Benchmark Insurance Company
+4618,Benchmark Insurance Company,exact,1.0,benchmark_insurance_company_overland_park_4bd44f,Benchmark Insurance Company
+3802,Benchmark Insurance Group of Texas,weak,0.6,benchmark_insurance_company_overland_park_4bd44f,Benchmark Insurance Company
+3848,Berkley Assurance Company,exact,1.0,berkley_assurance_company_scottsdale_595662,Berkley Assurance Company
+3803,Berkshire Hathaway Guard Insurance Companies,exact,1.0,berkshire_hathaway_guard_insurance_companies_wilkes_barre_96b766,Berkshire Hathaway Guard Insurance Companies
+3559,BlackBoard Insurance Co.,exact,1.0,blackboard_insurance_company_new_york_1829ff,Blackboard Insurance Company
+3813,Blitz Insurance Corp,none,0.229,,
+3640,Brian Monroy,none,0.222,,
+4733,Bridgefield Casualty Insurance Company,exact,1.0,bridgefield_casualty_insurance_co_lakeland_84869f,Bridgefield Casualty Insurance Co
+4734,Bridgefield Employers Insurance Company,weak,0.575,bridgefield_casualty_insurance_co_lakeland_84869f,Bridgefield Casualty Insurance Co
+4735,Bridgefield Indemnity Insurance Company,exact,1.0,bridgefield_casualty_insurance_co_lakeland_84869f,Bridgefield Casualty Insurance Co
+3839,"Brown & Riding Insurance Services,Inc.",none,0.255,,
+4736,BusinessFirst Insurance Company,exact,1.0,businessfirst_insurance_company_lakeland_3bfc85,BusinessFirst Insurance Company
+4262,CALIFORNIA AUTOMOBILE INSURANCE COMPANY,weak,0.558,american_automobile_insurance_company_chicago_f35376,American Automobile Insurance Company
+4308,CIM Insurance Corporation,none,0.267,,
+3929,CNA,exact,1.0,cna_chicago_939fc8,CNA
+3931,CNA Casualty of California,none,0.491,,
+3939,CNA Surety,strong,0.748,cna_surety_sd_sioux_falls_50f491,CNA Surety SD
+3849,"Canopius US Insurance,Inc",exact,1.0,canopius_us_insurance_schaumburg_3e7f58,Canopius US Insurance
+3627,Castle Key Indemnity Company,none,0.485,,
+3628,Castle Key Insurance Company,none,0.485,,
+3975,Centauri Specialty Insurance Co.,exact,1.0,centauri_specialty_insurance_company_lakewood_rch_ed1888,Centauri Specialty Insurance Company
+3974,Centauri Specialty Managers,weak,0.556,centauri_specialty_insurance_company_lakewood_rch_ed1888,Centauri Specialty Insurance Company
+3850,Certain Underwriter at Lloyd's,weak,0.604,certain_underwriters_at_lloyds_london_crosscover_cypress_ea1438,"Certain Underwriters at Lloyd's, London - Crosscover"
+4015,Certain Underwriter's at Lloyd's-CGM,weak,0.577,certain_underwriters_at_lloyds_london_crosscover_cypress_ea1438,"Certain Underwriters at Lloyd's, London - Crosscover"
+4086,"Certain Underwriters At Lloyd's,London",strong,0.864,certain_underwriters_at_lloyds_london_crosscover_cypress_ea1438,"Certain Underwriters at Lloyd's, London - Crosscover"
+4810,Charter Oak Fire Ins. Co.,exact,1.0,charter_oak_fire_insurance_company_hartford_8510f2,Charter Oak Fire Insurance Company
+3976,Chartis Insurance,none,0.267,,
+3575,Chartis Insurance,none,0.267,,
+3977,Chubb Insurance Solutions Agency Inc,exact,1.0,chubb_insurance_solutions_agency_whitehouse_station_556331,Chubb Insurance Solutions Agency
+3851,Clear Blue Specialty Insurance Co.,exact,1.0,clear_blue_insurance_company_chicago_9af718,Clear Blue Insurance Company
+4112,Coastal Select Inc Co,weak,0.567,american_coastal_insurance_company_jacksonville_bc85c5,American Coastal Insurance Company
+4947,Colonial American Casualty and Surety Co.,weak,0.578,american_colonial_insurance_company_birmingham_0ee5f4,American Colonial Insurance Company
+3852,Colony Insurance Company,exact,1.0,colony_insurance_company_richmond_00676d,Colony Insurance Company
+4189,Colorado Casualty insurance Co.,none,0.25,,
+3932,Columbia Casualty Co.,exact,1.0,columbia_casualty_company_chicago_e1ded5,Columbia Casualty Company
+3984,Combined Group Insurance Services,none,0.25,,
+3985,Commercial Insurance Group,weak,0.576,commercial_coverage_inc_chesterfield_6a5421,"Commercial Coverage, Inc"
+3986,Company $$$,none,0,,
+4404,Company Progressive Comm Auto,none,0.478,,
+4405,Company Progressive County Mutual Ins. Co. Autop,strong,0.743,progressive_county_mutual_insurance_company_austin_70bb6a,Progressive County Mutual Insurance Company
+4406,Company Progressive Ins,exact,1.0,progressive_carol_stream_365bef,Progressive 
+4780,Company The Hartford Autop,weak,0.591,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4781,Company The Hartford Comm Auto,none,0.446,,
+4811,Company Travelers Comm Auto,none,0.457,,
+4812,Company Travelers Lloyds Insurance Company Cpkge,strong,0.737,the_travelers_lloyds_insurance_company_hartford_1ab7b2,The Travelers Lloyds Insurance Company
+4745,Conifer,none,0.286,,
+4190,Consolidated,exact,1.0,consolidated_insurance_services_inc_chattanooga_26c78e,"Consolidated Insurance Services, Inc"
+4813,Consumers County Mutual,exact,1.0,consumers_county_mutual_insurance_company_dallas_5e0b25,Consumers County Mutual Insurance Company
+4782,Continental Casualty Company,exact,1.0,american_continental_insurance_franklin_59d76e,American Continental Insurance
+3933,Continental Casualty Company,exact,1.0,american_continental_insurance_franklin_59d76e,American Continental Insurance
+3990,Corebridge Financial,none,0.467,,
+3992,"Costanza Ins. Agency, Inc.",none,0.457,,
+3993,Coterie Insurance,none,0.267,,
+3853,Covington Specialty Insurance Co,exact,1.0,covington_specialty_insurance_company_atlanta_981b2f,Covington Specialty Insurance Company
+3996,Cypress Insurance Group INC,exact,1.0,cypress_property_casualty_sarasota_99d932,Cypress Property & Casualty
+3997,Cypress Propert & Casulty Company,none,0.387,,
+3998,Cypress Texas Lloyds,weak,0.573,allstate_texas_lloyds_irving_f4db02,Allstate Texas Lloyds
+4072,DEERFIELD INSURANCE COMPANY,none,0.305,,
+4073,DELOS,none,0.246,,
+3749,Dallas National Insurance Company,none,0.291,,
+3854,Denali Specialty Group,weak,0.54,everest_denali_insurance_company_liberty_cor_3ef531,Everest Denali Insurance Company
+4174,Diamond State Insurance,exact,1.0,diamond_state_insurance_company_bala_cynwyd_6e764a,Diamond State Insurance Company
+4948,Diamond State Insurance,exact,1.0,diamond_state_insurance_company_bala_cynwyd_6e764a,Diamond State Insurance Company
+4014,Dual Commercial LLC,none,0.497,,
+4074,ENDURANCE,exact,1.0,endurance_american_insurance_group_purchase_489fda,Endurance American Insurance Group
+3805,EastGUARD Ins Co,none,0.356,,
+4283,Economy  Fire & Casualty Company,weak,0.595,american_economy_insurance_company_boston_4b026e,American Economy Insurance Company
+4284,Economy Preferred Insurance Company,weak,0.533,american_economy_insurance_company_boston_4b026e,American Economy Insurance Company
+4285,Economy Premier Assurance Company (EPAC),none,0.407,,
+3560,Employers Preferred Insurance Company,exact,1.0,employers_preferred_insurance_company_los_angeles_b49197,Employers Preferred Insurance Company
+4032,Employers Preferred Insurance Company,exact,1.0,employers_preferred_insurance_company_los_angeles_b49197,Employers Preferred Insurance Company
+4127,Essentia Insurance Company,none,0.376,,
+4034,Essex Insurance Company,exact,1.0,essex_insurance_glen_allen_393140,Essex Insurance
+3855,Evanston Insurance Company,exact,1.0,evanston_insurance_company_rosemont_5d6ecd,Evanston Insurance Company
+4035,Evanston Insurance Company,exact,1.0,evanston_insurance_company_rosemont_5d6ecd,Evanston Insurance Company
+4191,Excelsior,none,0.267,,
+4075,FAIRFIELD,none,0.329,,
+4712,FARMERS CAS INC CO,weak,0.543,farmers_insurance_exchange_kalispell_9e69bd,Farmers Insurance Exchange
+4064,FEMA,none,0.267,,
+4713,FIRST PREFERRED INSURANCE COMPANY,weak,0.5,america_first_insurance_richardson_3f2659,America First Insurance
+3856,Falls Lake Fire & Casualty Company,exact,1.0,falls_lake_fire_and_casualty_raleigh_20d7d6,Falls Lake Fire and Casualty
+4865,Family Security,weak,0.578,national_security_insurance_company_elba_6d81e3,National Security Insurance Company
+4814,Farmington Casualty,exact,1.0,farmington_casualty_company_hartford_2c6eda,Farmington Casualty Company
+4640,Federated National Insurance Company,exact,1.0,federated_insurance_company_owatonna_7ddbdb,Federated Insurance Company
+4068,Fidelity Life,exact,1.0,american_fidelity_oklahoma_city_d03d6a,American Fidelity
+4815,Fidelity and Guaranty Insurance Company,weak,0.689,fidelity_guaranty_insurance_underwriters_saint_paul_d41f65,Fidelity & Guaranty Insurance Underwriters
+3757,First Community,exact,1.0,first_community_insurance_company_st_petersburg_941b18,First Community Insurance Company
+4069,First Community Insurance,exact,1.0,first_community_insurance_company_st_petersburg_941b18,First Community Insurance Company
+4179,First Community Insurance Company,exact,1.0,first_community_insurance_company_st_petersburg_941b18,First Community Insurance Company
+3641,First Nonprofit Insurance Co.,weak,0.5,america_first_insurance_richardson_3f2659,America First Insurance
+4085,Flood Risk Solutions Inc,none,0.482,,
+4092,For Training,none,0.215,,
+4093,Foremost,exact,1.0,foremost_insurance_caledonia_ebe0d4,Foremost Insurance
+4095,Foremost County Mutual,weak,0.578,foremost_insurance_caledonia_ebe0d4,Foremost Insurance
+4096,Foremost Insurance Compny,weak,0.578,foremost_insurance_caledonia_ebe0d4,Foremost Insurance
+4101,Foremost Insurance Group,exact,1.0,foremost_insurance_caledonia_ebe0d4,Foremost Insurance
+4097,Foremost Lloyds of Texas,none,0.471,,
+4098,Foremost Property & Casualty Ins. Co,exact,1.0,foremost_insurance_caledonia_ebe0d4,Foremost Insurance
+4099,Foremost Signature Ins. Co,weak,0.546,foremost_insurance_caledonia_ebe0d4,Foremost Insurance
+4100,ForemostSTAR,none,0.32,,
+3857,Fortegra Specialty Insurance Company,weak,0.537,fortegra_specialty_insurance_company_crosscover_cypress_a80784,Fortegra Specialty Insurance Company - Crosscover
+4107,Frontier General,weak,0.543,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4076,GENESIS,none,0.246,,
+4309,GMAC Direct Insurance,none,0.418,,
+4310,GMAC Insurance Online,none,0.233,,
+4110,Gainsco,none,0.291,,
+4286,Gainsco County Mutual Insurance Company (texas),weak,0.532,geico_texas_county_mutual_insurance_richardson_906d6f,GEICO Texas County Mutual Insurance
+3858,Gemini Insurance Company,exact,1.0,gemini_insurance_company_greenwich_5fb6ff,Gemini Insurance Company
+4192,General Insurance Co of America,exact,1.0,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4628,General Insurance Company of America,exact,1.0,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+3859,General Star Indemnity Company,exact,1.0,general_star_indemnity_stamford_f02513,General Star Indemnity
+4113,Geo Vera Ins Company,none,0.373,,
+4114,Geo Vera Specialty Insurance Company,none,0.373,,
+4111,Geovera Specialty Insurance,exact,1.0,geovera_insurance_company_fairfield_9e34ee,Geovera Insurance Company
+4746,German American,weak,0.582,german_american_farm_mutual_insurance_pflugerville_09737f,German American Farm Mutual Insurance
+4193,Golden Eagle,weak,0.513,golden_bear_insurance_company_stockton_ef7e08,Golden Bear Insurance Company
+3860,Gotham Insurance Company,exact,1.0,gotham_insurance_company_new_york_8a7e40,Gotham Insurance Company
+4889,Graphic Arts Mutual Insurance Company,exact,1.0,graphic_arts_mutual_insurance_company_utica_28ca01,Graphic Arts Mutual Insurance Company
+4455,Great American E&S Insurance Co.,weak,0.567,vault_es_insurance_company_new_york_b58c8d,Vault E&S Insurance Company
+3861,Great American E&S Insurance Company,weak,0.567,vault_es_insurance_company_new_york_b58c8d,Vault E&S Insurance Company
+4118,Great American insurance group,exact,1.0,great_american_frisco_740623,Great American
+4180,Great Lakes Insurance SE,exact,1.0,great_lakes_insurance_se_munchen_cffd80,Great Lakes Insurance SE
+3862,Great Lakes Insurance SE,exact,1.0,great_lakes_insurance_se_munchen_cffd80,Great Lakes Insurance SE
+4456,Great Lakes Reinsurance UK PLC,weak,0.707,great_lakes_reinsurance_new_york_1178c3,Great Lakes Reinsurance
+4124,Great Midwest Insurance Company,weak,0.58,midwest_insurance_company_springfield_38a491,Midwest Insurance Company
+4119,Griffin General Agency Inc,weak,0.586,atlas_general_agency_ft_lauderdale_6e64c3,Atlas General Agency
+4120,Grundy Worldwide(PHYL),none,0.44,,
+4194,"Gulf States AIF, Inc.",none,0.429,,
+4714,HALLMARK NATL INS CO,weak,0.605,american_hallmark_insurance_company_dallas_25dd2a,American Hallmark Insurance Company
+4123,HIIG Specialty,none,0.24,,
+4126,Hagerty Insurance Agency,none,0.496,,
+3863,Harleysville Insurance Co of NY,weak,0.656,harleysville_insurance_company_harleysville_b02cff,Harleysville Insurance Company
+4783,Hartford Accident Indemnity,exact,1.0,hartford_accident_and_indemnity_company_hartford_763c62,Hartford Accident and Indemnity Company
+4784,Hartford Casualty,exact,1.0,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4785,Hartford Casualty Ins Co,exact,1.0,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4786,Hartford Fire,exact,1.0,hartford_fire_insurance_hartford_dc4602,Hartford Fire Insurance
+4787,Hartford Fire Insurance Company,exact,1.0,hartford_fire_insurance_hartford_dc4602,Hartford Fire Insurance
+4788,Hartford Ins Co SE,weak,0.637,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4789,Hartford Ins Co of IL,weak,0.637,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4790,Hartford Ins Midwest,exact,1.0,hartford_insurance_company_of_midwest_kalispell_926c18,Hartford Insurance Company of Midwest
+4791,Hartford Lloyds,weak,0.578,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4792,Hartford P&C,weak,0.52,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4793,Hartford Underwriters,exact,1.0,hartford_underwriters_insurance_company_owings_mills_5bd576,Hartford Underwriters Insurance Company
+4129,Hartwell Insurance Company Inc,exact,1.0,hartwell_insurance_company_nashville_563ddf,Hartwell Insurance Company
+4128,Hartwell Insurance Company Inc.,exact,1.0,hartwell_insurance_company_nashville_563ddf,Hartwell Insurance Company
+4195,Hawkeye Security,weak,0.567,national_security_insurance_company_elba_6d81e3,National Security Insurance Company
+3864,Highlander Specialty Insurance Company,exact,1.0,highlander_specialty_insurance_company_addison_60d8e2,Highlander Specialty Insurance Company
+4130,Hiscox Inc.,exact,1.0,hiscox_insurance_company_new_york_c78eb6,Hiscox Insurance Company
+3561,"Hiscox Insurance Company, Inc.",exact,1.0,hiscox_insurance_company_new_york_c78eb6,Hiscox Insurance Company
+4311,Home State County Mutual,exact,1.0,home_state_county_mutual_insurance_waco_0dae59,Home State County Mutual Insurance
+4715,Home State County Mutual Insurance,exact,1.0,home_state_county_mutual_insurance_waco_0dae59,Home State County Mutual Insurance
+4132,Homeowners of America Ins,exact,1.0,homeowners_of_america_insurance_irving_68d1ca,Homeowners of America Insurance
+4133,Homeowners of America Ins Co,exact,1.0,homeowners_of_america_insurance_irving_68d1ca,Homeowners of America Insurance
+4407,Homesite Indemnity Co,exact,1.0,homesite_insurance_company_alpharetta_109158,Homesite Insurance Company
+4408,Homesite Insurance Co,exact,1.0,homesite_insurance_company_alpharetta_109158,Homesite Insurance Company
+4409,Homesite Insurance Co of California,weak,0.537,homesite_insurance_company_alpharetta_109158,Homesite Insurance Company
+4410,Homesite Insurance Co of Florida,exact,1.0,homesite_insurance_company_of_florida_boston_c56d28,Homesite Insurance Company of Florida
+4411,Homesite Insurance Co of Illinios,weak,0.556,homesite_insurance_company_alpharetta_109158,Homesite Insurance Company
+4412,Homesite Insurance Co of New York,weak,0.606,homeland_insurance_company_of_new_york_hopkins_04a7c4,Homeland Insurance Company of New York
+4413,Homesite Insurance Co of Pennsylvania,weak,0.591,pennsylvania_insurance_company_boston_6411cb,Pennsylvania Insurance Company
+4414,Homesite Insurance Co of the Midwest,weak,0.567,homesite_insurance_company_alpharetta_109158,Homesite Insurance Company
+4415,Homesite Lloyds of Texas,none,0.49,,
+4134,Honeycomb Programs Inc.,none,0.444,,
+4137,Houston International Insurance Group,weak,0.606,american_international_company_parsippany_63b847,American International Company
+4125,Houston Specialty Insurance,exact,1.0,houston_casualty_company_los_angelese_da0a75,Houston Casualty Company
+4087,INTEGON NATIONAL INSURANCE COMPANY,exact,1.0,integon_national_insurance_co_uniondale_b749bb,INTEGON NATIONAL INSURANCE CO
+4747,Imperial Fire & Casualty,exact,1.0,imperial_fire_casualty_insurance_opelousas_95025c,Imperial Fire & Casualty Insurance
+4641,Independent Mutual Fire insurance Company,weak,0.626,independent_specialty_insurance_company_bedford_d29505,Independent Specialty Insurance Company
+4911,Independent Specialty Insurance Co.,exact,1.0,independent_specialty_insurance_company_bedford_d29505,Independent Specialty Insurance Company
+4330,Indian Harbor Insurance Company,exact,1.0,indian_harbor_stamford_8fb235,Indian Harbor
+4196,Indiana,weak,0.567,safeco_insurance_company_of_indiana_indianapolis_9b1e12,Safeco Insurance Company of Indiana
+4166,Infinity,exact,1.0,infinity_insurance_birmingham_aa9750,Infinity Insurance
+4629,Insurance Company of Illinois,exact,1.0,illinois_casualty_company_rock_island_e0cbdf,Illinois Casualty Company
+4172,Insurance Specialty Group LLC,none,0,,
+4312,Integon Casualty Insurance Co.,exact,1.0,integon_national_insurance_co_uniondale_b749bb,INTEGON NATIONAL INSURANCE CO
+4313,Integon General Insurance Corp.,weak,0.555,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4314,Integon Indemnity Corp.,exact,1.0,integon_national_insurance_co_uniondale_b749bb,INTEGON NATIONAL INSURANCE CO
+4315,Integon National,exact,1.0,integon_national_insurance_co_uniondale_b749bb,INTEGON NATIONAL INSURANCE CO
+3865,Integon National Insurance Company,exact,1.0,integon_national_insurance_co_uniondale_b749bb,INTEGON NATIONAL INSURANCE CO
+4316,Integon Preferred Insurance Co.,weak,0.533,integon_national_insurance_co_uniondale_b749bb,INTEGON NATIONAL INSURANCE CO
+4317,Integon Specialty Insurance Co.,exact,1.0,integon_national_insurance_co_uniondale_b749bb,INTEGON NATIONAL INSURANCE CO
+4642,Interboro Mutual Indemnity Insurance Company,none,0.25,,
+4173,J.H.Ferguson & Associates LLC,exact,1.0,jh_ferguson_associates_llc_chicago_ed2cce,J.H. Ferguson & Associates LLC
+4949,J.H.Ferguson & Associates LLC,exact,1.0,jh_ferguson_associates_llc_chicago_ed2cce,J.H. Ferguson & Associates LLC
+3866,James River Insurance Co.,exact,1.0,james_river_insurance_company_richmond_d85362,James River Insurance Company
+4177,Jencap Group LLC,none,0.267,,
+3758,Johnson & Johnson,none,0.243,,
+4178,Johnson & Johnson Inc,none,0.243,,
+4181,K & K Insurance Group,exact,1.0,kk_insurance_group_inc_chicago_2cdf8c,"K&K INSURANCE GROUP, INC."
+4182,Kemper,none,0.335,,
+3867,Kinsale Insurance Company,exact,1.0,kinsale_insurance_company_richmond_115276,Kinsale Insurance Company
+4748,LLoyds,exact,1.0,american_national_lloyds_insurance_company_league_city_9fa91f,American National Lloyds Insurance Company
+4185,Lancer Insurance,exact,1.0,lancer_insurance_jacksonville_6dc1f6,Lancer Insurance
+3868,Landmark American Insurance Co.,exact,1.0,landmark_american_insurance_company_new_york_d06562,Landmark American Insurance Company
+4749,Lexington Insurance Company,exact,1.0,lexington_insurance_company_boston_54e3e6,Lexington Insurance Company
+3999,Liberty Mutual,exact,1.0,american_liberty_insurance_company_minneapolis_f2c1fd,American Liberty Insurance Company
+4197,Liberty Mutual Fire Insurance Co.,exact,1.0,liberty_mutual_fire_insurance_co_salt_lake_city_5195d3,Liberty Mutual Fire Insurance Co
+4186,Liberty Mutual Insurance,exact,1.0,american_liberty_insurance_company_minneapolis_f2c1fd,American Liberty Insurance Company
+3629,Lincoln Benefit Life-Resolution,none,0.316,,
+4619,Lloyd's of London,weak,0.667,lloyds_america_new_york_c52799,Lloyd's America
+4077,MARKEL AMERICAN INSURANCE COMPANY,exact,1.0,markel_american_insurance_company_waukesha_f32410,Markel American Insurance Company
+4078,MARKEL INSURANCE,exact,1.0,markel_american_insurance_company_waukesha_f32410,Markel American Insurance Company
+4263,MERCURY,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4264,MERCURY CASUALTY COMPANY,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4265,MERCURY COUNTY MUTUAL INSURANCE COMPANY,exact,1.0,mercury_county_mutual_insurance_company_oklahoma_city_d6cc79,Mercury County Mutual Insurance Company
+4266,MERCURY INDEMNITY COMPANY,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4267,MERCURY INDEMNITY OF AMERICA,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4268,MERCURY INSURANCE COMPANY,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4269,MERCURY INSURANCE COMPANY OF FLORIDA,weak,0.555,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4716,MERIDIAN CITIZENS MUT INS CO,none,0.421,,
+4318,MIC General Insurance Corp.,weak,0.611,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4319,MIC Property & Casualty Insurance,none,0.343,,
+3869,MS Transverse Specialty Insurance Co,exact,1.0,ms_transverse_specialty_insurance_company_warren_a66837,MS Transverse Specialty Insurance Company
+4331,MS Transverse Specialty Insurance Co,exact,1.0,ms_transverse_specialty_insurance_company_warren_a66837,MS Transverse Specialty Insurance Company
+4088,MS Transverse Specialty Insurance Co.,exact,1.0,ms_transverse_specialty_insurance_company_warren_a66837,MS Transverse Specialty Insurance Company
+4950,Maine Bonding and Casualty Company,none,0.493,,
+4211,Maison Insurance,none,0.267,,
+4416,Marathon Insurance Company,none,0.286,,
+4212,Markel,exact,1.0,markel_american_insurance_company_waukesha_f32410,Markel American Insurance Company
+4213,Markel Insurance Company,exact,1.0,markel_american_insurance_company_waukesha_f32410,Markel American Insurance Company
+4214,Marketing,none,0.267,,
+4951,Maryland Casualty Company,none,0.4,,
+4952,Maryland Insurance Company,none,0.4,,
+4270,Mercury Company of Illinois,weak,0.567,illinois_casualty_company_rock_island_e0cbdf,Illinois Casualty Company
+4271,Mercury Indemnity of Georgia,weak,0.555,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4272,Mercury Insurance Company of Georgia,weak,0.555,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4259,Mercury Insurance Group,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4273,Mercury National Insurance Company,exact,1.0,american_mercury_insurance_co_oklahoma_city_537da0,American Mercury Insurance Co
+4717,Meridian Security Ins Co,weak,0.556,national_security_insurance_company_elba_6d81e3,National Security Insurance Company
+4282,Met Life,none,0.267,,
+4287,Metropolitan Casualty Insurance Company,none,0.24,,
+4288,Metropolitan Direct Property & Casualty Insurance Co,none,0.36,,
+4289,Metropolitan General Insurance Company,weak,0.507,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4290,Metropolitan Group Property and Casualty Ins Company,none,0.24,,
+4291,Metropolitan Lloyds Insurance Company (Texas),none,0.474,,
+4292,Metropolitan Property & Casualty Insurance Co,none,0.24,,
+4198,Mid America Fire & Casualty,weak,0.567,american_fire_casualty_company_boston_963d82,American Fire & Casualty Company
+4293,Mid-Continent Group,exact,1.0,mid_continent_casualty_company_tulsa_2daadf,Mid Continent Casualty Company
+4294,Midland National Life Insurance,none,0.308,,
+4295,Midwest Insurance Company,exact,1.0,midwest_insurance_company_springfield_38a491,Midwest Insurance Company
+4199,Midwestern Indemnity,none,0.329,,
+4718,Milbank Ins Co,none,0.25,,
+3642,Milwaukee Casualty Insurance Co.,exact,1.0,milwaukee_casualty_insurance_company_dallas_0000bf,Milwaukee Casualty Insurance Company
+4296,Modern Insurance Consultants Llc,weak,0.5,american_modern_insurance_group_cincinnati_41cd70,American Modern Insurance Group
+4200,Montgomery Mutual,weak,0.586,montgomery_collins_inc_venice_bd96a5,"Montgomery & Collins, Inc"
+4320,Motors Insurance Corporation,none,0.308,,
+4417,Mountain Laurel Assurance Co.,none,0.493,,
+3870,Mt. Hawley Insurance Company,exact,1.0,mt_hawley_insurance_company_alpharetta_6ad167,Mt. Hawley Insurance Company
+4730,NA,none,0.32,,
+4731,NOVA Casualty Co,exact,1.0,nova_casualty_company_windsor_c01edd,NOVA Casualty Company
+4321,National Alliance Insurance Co.,exact,1.0,american_alliance_rosemont_4db7c9,American Alliance
+4418,National Continental Ins. Co.,exact,1.0,american_continental_insurance_franklin_59d76e,American Continental Insurance
+4016,National Fire & Marine Insurance Co,exact,1.0,national_fire_marine_insurance_company_omaha_119780,National Fire & Marine Insurance Company
+3934,National Fire Insurance Co. Of Hartford,exact,1.0,national_fire_insurance_company_of_hartford_chicago_87a4af,National Fire Insurance Company of Hartford
+4089,National Flood Insurance Program,exact,1.0,national_flood_insurance_program_shawnee_mission_4d5099,National Flood Insurance Program
+4303,National Flood Insurance Program,exact,1.0,national_flood_insurance_program_shawnee_mission_4d5099,National Flood Insurance Program
+4307,National General (NGIC),weak,0.595,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4322,National General Assurance Company,exact,1.0,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4323,National General Insurance Company,exact,1.0,general_insurance_company_of_america_seattle_030f84,General Insurance Company of America
+4953,National Standard Insurance Company,exact,1.0,standard_casualty_company_new_braunfels_7f22c8,Standard Casualty Company
+4327,National Unity,none,0.291,,
+4328,Natural Catastrophe Insurance Program,none,0.35,,
+3871,Navigators Insurance Company,exact,1.0,navigators_insurance_pittsburgh_baf9f9,Navigators Insurance
+4329,Neptune Flood Incorporated,none,0.434,,
+3562,New Hampshire Insurance Company,exact,1.0,new_hampshire_insurance_company_kalispell_8cdad0,New Hampshire Insurance Company
+4324,New South Insurance Co.,none,0.418,,
+4332,Next Wave Insurance Services,weak,0.546,next_insurance_palo_alto_1c70ab,Next Insurance
+4335,None,none,0.267,,
+3806,NorGUARD Ins Co,exact,1.0,norguard_insurance_company_wilkes_barre_99053c,NorGUARD Insurance Company
+3630,Northbrook Indemnity Company,none,0.267,,
+4954,Northern Insurance Co. of New York,weak,0.615,greater_new_york_mutual_insurance_company_new_york_31d097,Greater New York Mutual Insurance Company
+4341,OBIE,none,0.343,,
+4922,Obsidian Insurance Company,exact,1.0,obsidian_insurance_company_new_york_6186e3,Obsidian Insurance Company
+4348,Occidental Fire & Casualty Co,exact,1.0,occidental_fire_casualty_company_raleigh_0ad036,Occidental Fire & Casualty Company
+4643,Occidental Fire & Casualty Company,exact,1.0,occidental_fire_casualty_company_raleigh_0ad036,Occidental Fire & Casualty Company
+4201,Ohio Casualty Insurance Co.,exact,1.0,ohio_casualty_insurance_company_fairfield_53fe5b,Ohio Casualty Insurance Company
+4202,Ohio Security Insurance Co.,exact,1.0,ohio_security_insurance_company_boston_4f4db6,Ohio Security Insurance Company
+4353,"Orbital Risk Capital, Inc",weak,0.555,capital_assurance_company_coral_gables_1adb00,Capital Assurance Company
+4719,PATRONS MUT INS CO OF CT,none,0.218,,
+4720,PETROLIA INSURANCE COMPANY,none,0.267,,
+4794,Pacific Insurance Co,exact,1.0,pacific_indemnity_company_milwaukee_1b5491,Pacific Indemnity Company
+4923,Palomar Specialty Ins,exact,1.0,palomar_specialty_insurance_company_portland_036af2,Palomar Specialty Insurance Company
+4203,Peerless,exact,1.0,peerless_indemnity_insurance_company_warrenville_ecb590,Peerless Indemnity Insurance Company
+4204,Peerless Indemnity Insurance Co.,exact,1.0,peerless_indemnity_insurance_company_warrenville_ecb590,Peerless Indemnity Insurance Company
+4122,Philadelphia Indemnity Insurance Company,exact,1.0,philadelphia_indemnity_insurance_company_bala_cynwyd_c0a08a,Philadelphia Indemnity Insurance Company
+4644,Pillar,none,0.25,,
+4721,Plaza Insurance Company,exact,1.0,plaza_insurance_company_kansas_city_3e27d7,Plaza Insurance Company
+4419,Preferred Consumers,weak,0.5,preferred_contractors_insurance_company_carlsbad_06e3f1,Preferred Contractors Insurance Company
+4403,Progressive,exact,1.0,progressive_carol_stream_365bef,Progressive 
+4420,Progressive American Ins. Co.,exact,1.0,progressive_carol_stream_365bef,Progressive 
+4421,Progressive American Life,exact,1.0,progressive_carol_stream_365bef,Progressive 
+4422,Progressive Bayside Ins. Co.,weak,0.593,progressive_carol_stream_365bef,Progressive 
+4423,Progressive Casualty Ins. Co.,exact,1.0,progressive_carol_stream_365bef,Progressive 
+4424,Progressive Classic Ins. Co.,weak,0.593,progressive_carol_stream_365bef,Progressive 
+4425,Progressive Consumers,weak,0.575,progressive_carol_stream_365bef,Progressive 
+4426,Progressive County Mutual,exact,1.0,progressive_county_mutual_insurance_company_austin_70bb6a,Progressive County Mutual Insurance Company
+4427,Progressive Direct Ins. Co (was Halcyon),none,0.376,,
+4428,Progressive Express,exact,1.0,progressive_express_insurance_company_mayfield_c3c5f0,Progressive Express Insurance Company
+4429,Progressive Gulf Ins. Co.,exact,1.0,progressive_gulf_insurance_company_cleveland_7c936a,Progressive Gulf Insurance Company
+4430,Progressive Hawaii Ins. Corp.,weak,0.603,progressive_carol_stream_365bef,Progressive 
+4431,Progressive Home Ins. Co.,weak,0.626,progressive_carol_stream_365bef,Progressive 
+4432,Progressive Max Ins. Co.,weak,0.638,progressive_carol_stream_365bef,Progressive 
+4433,Progressive Michigan,exact,1.0,progressive_michigan_insurance_company_cleveland_f9d31e,Progressive Michigan Insurance Company
+4434,Progressive Mountain Ins. Co.,exact,1.0,progressive_mountain_insurance_company_cleveland_448b54,Progressive Mountain Insurance Company
+4435,Progressive Northeastern,weak,0.551,progressive_carol_stream_365bef,Progressive 
+4436,Progressive Northern Ins. Co.,weak,0.584,progressive_carol_stream_365bef,Progressive 
+4437,Progressive Northwestern Ins. Co.,weak,0.551,progressive_carol_stream_365bef,Progressive 
+4438,Progressive Paloverde Ins. Co. of Arizona,none,0.42,,
+4439,Progressive Preferred Ins. Co.,exact,1.0,progressive_preferred_insurance_company_mayfield_village_e262c4,Progressive Preferred Insurance Company
+4440,Progressive Premier Ins. Co. of Illinois,none,0.428,,
+4441,Progressive Security,weak,0.584,progressive_carol_stream_365bef,Progressive 
+4442,Progressive Southeastern,weak,0.551,progressive_carol_stream_365bef,Progressive 
+4443,Progressive Specialty Ins. Co.,exact,1.0,progressive_carol_stream_365bef,Progressive 
+4444,Progressive Universal Ins. Co. of Illinois,none,0.422,,
+4445,Progressive Value,weak,0.614,progressive_carol_stream_365bef,Progressive 
+4446,Progressive West Insurance,weak,0.626,progressive_carol_stream_365bef,Progressive 
+4450,Pronto,none,0.25,,
+3631,Property Joint Underwriting Association,weak,0.623,alabama_insurance_underwriting_association_foley_903cc7,Alabama Insurance Underwriting Association
+4453,Prospect,none,0.267,,
+4454,Protecor Financial,none,0.491,,
+4458,QBE Flood Insurance Servicing,exact,1.0,qbe_flood_insurance_servicing_denver_04e986,QBE Flood Insurance Servicing
+3872,QBE Specialty Insurance Company,exact,1.0,qbe_insurance_corporation_new_york_1e3268,QBE Insurance Corporation
+4459,RAINBOW MGA INSURANCE AGENCY INC.,none,0.385,,
+4079,REDLAND,none,0.267,,
+4080,REPUBLIC UNDERWRITTERS INSURANCE COMPANY,weak,0.591,republic_underwriters_insurance_co_dallas_d8d768,Republic Underwriters Insurance Co
+4462,RLI SURETY,weak,0.6,american_surety_company_peoria_heights_bca92d,American Surety Company
+4465,RSI,none,0.343,,
+4447,Ranchers and Farmers,exact,1.0,ranchers_farmers_mutual_insurance_beaumont_83ec61,Ranchers & Farmers Mutual Insurance
+4795,Rated by Multiple Co's,none,0.3,,
+4081,Republic Fire and Casualty Insurance Company,none,0.493,,
+4890,Republic Franklin Insurance Company,exact,1.0,republicfranklin_insurance_company_utica_0c5114,Republic-Franklin Insurance Company
+4544,Republic Home Protectors,none,0.417,,
+3750,Republic Underwriters Insurance Company,exact,1.0,republic_underwriters_insurance_co_dallas_d8d768,Republic Underwriters Insurance Co
+4737,RetailFirst Insurance Company,none,0.255,,
+4738,Retailers Casualty Insurance Company,none,0.267,,
+4602,RiskTheory,none,0.255,,
+3643,Rochdale Insurance Co.,none,0.25,,
+3873,"Rockingham Specialty, Inc",exact,1.0,rockingham_insurance_company_harrisonburg_54e2ed,Rockingham Insurance Company
+4899,Ryan Turner Specialty,none,0.24,,
+4082,SOUTHERN INSURANCE COMPANY,exact,1.0,american_southern_insurance_company_atlanta_6f5490,American Southern Insurance Company
+4083,SOUTHERN VANGUARD INSURANCE INSURANCE COMPANY,weak,0.556,american_southern_insurance_company_atlanta_6f5490,American Southern Insurance Company
+4722,STATE AUTO FLORIDA INS. CO,weak,0.686,state_auto_insurance_company_columbus_cbbd34,State Auto Insurance Company
+4723,STATE AUTO INS CO OF WI,strong,0.748,state_auto_insurance_company_columbus_cbbd34,State Auto Insurance Company
+4616,SW/Risk,none,0.2,,
+4617,SWYFFT LLC,exact,1.0,swyfft_morristown_846f06,Swyfft
+4645,Safechoice Insurance Co.,none,0.3,,
+4621,Safeco,exact,1.0,safeco_insurance_chicago_851780,Safeco Insurance
+4630,Safeco Insurance Co. of Illinois,weak,0.578,illinois_casualty_company_rock_island_e0cbdf,Illinois Casualty Company
+4631,Safeco Insurance Co. of Indiana,exact,1.0,safeco_insurance_company_of_indiana_indianapolis_9b1e12,Safeco Insurance Company of Indiana
+4632,Safeco Insurance Co. of Oregon,exact,1.0,safeco_insurance_company_of_oregon_portland_08d4c1,Safeco Insurance Company  of Oregon
+4633,Safeco Insurance Company of America,exact,1.0,safeco_insurance_chicago_851780,Safeco Insurance
+4634,Safeco Lloyds Insurance Co,weak,0.553,american_national_lloyds_insurance_company_league_city_9fa91f,American National Lloyds Insurance Company
+4635,Safeco Surplus Lines Insurance Co.,weak,0.628,starr_surplus_lines_insurance_company_new_york_faf33b,Starr Surplus Lines Insurance Company
+4646,Safeport Insurance Company,none,0.286,,
+4349,SageSure Insurance Managers LLC,none,0.474,,
+4637,Sagesure,none,0.282,,
+3644,Security National Insurance Company,exact,1.0,national_security_insurance_company_elba_6d81e3,National Security Insurance Company
+3874,Seneca Insurance Company Inc,exact,1.0,seneca_specialty_insurance_company_new_york_8ada3b,Seneca Specialty Insurance Company
+4796,Sentinel Insurance,weak,0.62,sentinel_insurance_company_ltd_hartford_b6d746,"Sentinel Insurance Company, Ltd"
+3645,Sequoia Indemnity Co.,exact,1.0,sequoia_insurance_company_las_vegas_853e80,Sequoia Insurance Company
+3646,Sequoia Insurance Co.,exact,1.0,sequoia_insurance_company_las_vegas_853e80,Sequoia Insurance Company
+4647,Service Insurance Company,exact,1.0,service_american_indemnity_company_austin_9f2095,Service American Indemnity Company
+3695,"Silver Oak Casualty, Incorporated",weak,0.642,silver_oak_casualty_slidell_dec8c3,Silver Oak Casualty
+4797,Southern County Mutual,exact,1.0,southern_county_mutual_dallas_de9c4e,Southern County Mutual
+3751,Southern Insurance Company,exact,1.0,american_southern_insurance_company_atlanta_6f5490,American Southern Insurance Company
+4448,Specialty Risk Ins. Co.,none,0,,
+3752,Spinnaker Insurance,exact,1.0,spinnaker_insurance_company_chester_8fd2b8,Spinnaker Insurance Company
+3995,Spinnaker Insurance Company,exact,1.0,spinnaker_insurance_company_chester_8fd2b8,Spinnaker Insurance Company
+4816,St. Paul Fire and Marine Ins. Co.,exact,1.0,st_paul_fire_marine_insurance_company_hartford_06b437,St Paul Fire & Marine Insurance Company
+4817,Standard Fire Ins Co.,exact,1.0,standard_fire_insurance_company_hartford_15e3e3,Standard Fire Insurance Company
+3875,Starr Indemnity & Liability Company,exact,1.0,starr_indemnity_liability_company_new_york_0f1ca7,Starr Indemnity & Liability Company
+3876,Starr Surplus Lines,exact,1.0,starr_surplus_lines_insurance_company_new_york_faf33b,Starr Surplus Lines Insurance Company
+4724,State Auto Ins Co of Ohio,strong,0.72,state_auto_insurance_company_columbus_cbbd34,State Auto Insurance Company
+4708,State Auto Insurance Companies,weak,0.667,state_auto_insurance_company_columbus_cbbd34,State Auto Insurance Company
+4725,State Auto P & C Ins Co,weak,0.633,state_auto_insurance_company_columbus_cbbd34,State Auto Insurance Company
+4726,State Automobile Mutual Ins Co,weak,0.608,american_automobile_insurance_company_chicago_f35376,American Automobile Insurance Company
+4274,State and County Mutual Fire Insurance Co. (S),weak,0.576,state_national_fire_insurance_shreveport_c6aee6,State National Fire Insurance
+4727,Steadfast  Insurance Company,exact,1.0,steadfast_insurance_company_schaumburg_ca3da3,Steadfast Insurance Company
+4955,Steadfast Insurance Company,exact,1.0,steadfast_insurance_company_schaumburg_ca3da3,Steadfast Insurance Company
+4729,StorageFirst,none,0.255,,
+4732,Summit Consulting LLC,weak,0.509,american_summit_insurance_company_scottsdale_0fb104,American Summit Insurance Company
+4648,SureChoice Insurance Company,none,0.267,,
+4649,SureChoice Underwriters Reciprocal Exchance,none,0.355,,
+4739,Suretec Insurance Company,exact,1.0,suretec_insurance_company_houston_b963c0,SureTec Insurance Company
+4924,Sutton National Insurance Co.,exact,1.0,sutton_national_insurance_company_delray_beach_16f3ad,Sutton National Insurance Company
+4818,TRAVCAL Indemnity Company (Auto),none,0.467,,
+4819,TRAVCO Insurance Co.,none,0.267,,
+4744,TWFG (The Woodlands Financial Group),none,0.39,,
+4750,TWICO,none,0.267,,
+4759,Target Insurance Services,none,0.308,,
+3647,Technology Insurance Company,exact,1.0,technology_insurance_company_seven_hills_026c18,Technology Insurance Company
+4775,Texas Fair Plan Association,weak,0.672,california_fair_plan_association_los_angeles_88265c,California Fair Plan Association
+4778,Texas Windstorm Insurance Association,exact,1.0,texas_windstorm_insurance_association_austin_09f07b,Texas Windstorm Insurance Association
+3935,The Continental Insurance Co.,exact,1.0,american_continental_insurance_franklin_59d76e,American Continental Insurance
+3936,The Continental Insurance Co. of New Jersey,weak,0.574,drive_new_jersey_insurance_company_cleveland_a3f485,Drive New Jersey Insurance Company
+4956,The Fidelity and Deposit Company of Maryland,exact,1.0,fidelity_deposit_company_of_maryland_schaumburg_ba4226,Fidelity & Deposit Company of Maryland
+4820,The First Floridian,weak,0.5,america_first_insurance_richardson_3f2659,America First Insurance
+4779,The Hartford,exact,1.0,hartford_casualty_insurance_company_hartford_19612b,Hartford Casualty Insurance Company
+4821,The Phoenix Ins. Co.,exact,1.0,phoenix_insurance_company_chicago_0f484b,Phoenix Insurance Company
+4822,The Travelers Indemnity Co.,exact,1.0,the_travelers_minneapolis_551249,The Travelers
+4802,The Zenith,exact,1.0,zenith_insurance_company_chicago_7b9971,Zenith Insurance Company
+4205,TheNetherlands,none,0.232,,
+4805,Three By Berkshire Hathaway,weak,0.62,berkshire_hathaway_specialty_boston_8b7bce,Berkshire Hathaway Specialty
+3877,Tokio Marine Specialty Ins Co,exact,1.0,tokio_marine_new_york_75a5a4,Tokio Marine
+4620,Topa Insurance Company,exact,1.0,topa_insurance_company_calabasas_106266,Topa Insurance Company
+3753,Tower Hill Signature Ins Co,weak,0.667,tower_hill_insurance_gainesville_12a8a6,Tower Hill Insurance
+4806,Trans Life Insurance Company,none,0.267,,
+3937,Transportation Insurance Coompany,weak,0.603,transportation_insurance_company_chicago_c32828,Transportation Insurance Company
+4925,Trasverse Specialty Ins Co.,none,0.379,,
+4823,Travelers Casualty & Surety,exact,1.0,travelers_casualty_and_surety_company_hartford_fd1c22,Travelers Casualty and Surety Company
+4824,Travelers Casualty & Surety Co of,exact,1.0,travelers_casualty_and_surety_company_hartford_fd1c22,Travelers Casualty and Surety Company
+4825,Travelers Casualty & Surety of Illinois,weak,0.712,travelers_casualty_and_surety_company_hartford_fd1c22,Travelers Casualty and Surety Company
+4826,Travelers Casualty Insurance Company of America,exact,1.0,the_travelers_minneapolis_551249,The Travelers
+4827,Travelers Casualty of Connecticut,weak,0.54,the_travelers_minneapolis_551249,The Travelers
+4828,Travelers Commercial Ins.,weak,0.548,the_travelers_minneapolis_551249,The Travelers
+4829,Travelers Home and Marine Co.,none,0.44,,
+4830,Travelers Indemnity Co. of America,exact,1.0,the_travelers_minneapolis_551249,The Travelers
+4831,Travelers Indemnity Co. of Connecticut,weak,0.54,the_travelers_minneapolis_551249,The Travelers
+4832,Travelers Indemnity Co. of Illinois,weak,0.567,the_travelers_minneapolis_551249,The Travelers
+4833,Travelers Indemnity Co. of Missouri,weak,0.567,the_travelers_minneapolis_551249,The Travelers
+4808,Travelers Insurance Co.,exact,1.0,the_travelers_minneapolis_551249,The Travelers
+4834,Travelers Lloyds of Texas Ins. Co.,strong,0.737,the_travelers_lloyds_insurance_company_hartford_1ab7b2,The Travelers Lloyds Insurance Company
+4835,Travelers Personal security Ins. Co.,strong,0.72,travelers_personal_insurance_dallas_c716bc,Travelers Personal Insurance
+4836,Travelers Property Casualty Co. of Ill.,weak,0.627,the_travelers_minneapolis_551249,The Travelers
+4837,Travelers Property Casualty Ins. Co.,exact,1.0,the_travelers_minneapolis_551249,The Travelers
+3648,Trinity Lloyds Insurance Co.,weak,0.54,american_national_lloyds_insurance_company_league_city_9fa91f,American National Lloyds Insurance Company
+4926,Trisura Insurance Co.,exact,1.0,trisura_specialty_insurance_company_oklahoma_city_d548a8,Trisura Specialty Insurance Company
+4136,Trisura Insurance Company,exact,1.0,trisura_specialty_insurance_company_oklahoma_city_d548a8,Trisura Specialty Insurance Company
+4650,Trium,none,0.3,,
+4798,Trumbull Insurance,exact,1.0,trumbull_insurance_company_hartford_f8f515,Trumbull Insurance Company
+4799,Twin City Fire,exact,1.0,twin_city_fire_insurance_company_owings_mills_4624f7,Twin City Fire Insurance Company
+4864,UNITED PROPERTY CASUALTY INS CO,exact,1.0,united_national_insurance_company_bala_cynwyd_222226,United National Insurance Company
+4957,US Assure Insurance Services of Florida,none,0.392,,
+4888,UTICA NATIONAL,exact,1.0,utica_national_new_hartford_2f2046,Utica National
+4457,"Underwriters at LLoyds, London",weak,0.693,underwriters_at_lloyds_london_bfe443,Underwriters at Lloyd's London
+3878,Underwriters at Llyods of London,weak,0.68,underwriters_at_lloyds_london_bfe443,Underwriters at Lloyd's London
+4449,United Financial Casualty Co.,exact,1.0,united_financial_casualty_company_cleveland_338f90,United Financial Casualty Company
+4896,United Health,weak,0.553,united_national_insurance_company_bala_cynwyd_222226,United National Insurance Company
+4958,United National Insurance Company,exact,1.0,united_national_insurance_company_bala_cynwyd_222226,United National Insurance Company
+4866,United Property and Casualty Insurance,exact,1.0,united_national_insurance_company_bala_cynwyd_222226,United National Insurance Company
+3879,United Specialty Insurance Company,exact,1.0,united_national_insurance_company_bala_cynwyd_222226,United National Insurance Company
+4900,United States Liability,exact,1.0,united_states_liability_insurance_wayne_2e156b,United States Liability Insurance
+4897,United States Liability Insurance (USLI),strong,0.811,united_states_liability_insurance_wayne_2e156b,United States Liability Insurance
+4906,Universal Insurance Company of North America,weak,0.6,universal_casualty_risk_retention_group_inc_oklahoma_city_d028e3,"Universal Casualty Risk Retention Group, Inc."
+4905,Universal N.A. Insurance Co,weak,0.527,universal_casualty_risk_retention_group_inc_oklahoma_city_d028e3,"Universal Casualty Risk Retention Group, Inc."
+4907,Universal N.A. Insurance Co.,weak,0.527,universal_casualty_risk_retention_group_inc_oklahoma_city_d028e3,"Universal Casualty Risk Retention Group, Inc."
+4908,Universal North America Insurance Company,weak,0.6,universal_casualty_risk_retention_group_inc_oklahoma_city_d028e3,"Universal Casualty Risk Retention Group, Inc."
+4891,Utica LLoyds of Texas,none,0.485,,
+4892,Utica Mutual Insurance Company,exact,1.0,utica_national_new_hartford_2f2046,Utica National
+4893,Utica National Assurance Company,exact,1.0,utica_national_new_hartford_2f2046,Utica National
+4894,Utica National Insurance Company of Texas,weak,0.55,texas_insurance_company_omaha_5ffec2,Texas Insurance Company
+4895,Utica Specialty Risk Insurance Company,exact,1.0,utica_national_new_hartford_2f2046,Utica National
+4084,VIRGINIA SURETY,exact,1.0,virginia_surety_company_chicago_8aa3c7,Virginia Surety Company
+3938,Valley Forge Insurance Co.,exact,1.0,valley_forge_insurance_company_chicago_76393a,Valley Forge Insurance Company
+3880,Velocity Risk Insurance,exact,1.0,velocity_specialty_insurance_company_nashville_b65143,Velocity Specialty Insurance Company
+4910,"Velocity Risk Underwriters, LLC",exact,1.0,velocity_risk_underwriters_nashville_a1cd79,Velocity Risk Underwriters
+3881,Velocity Specialty Insurance Company,exact,1.0,velocity_specialty_insurance_company_nashville_b65143,Velocity Specialty Insurance Company
+3882,Victor Insurance Exchange,weak,0.514,fire_insurance_exchange_kalispell_4ac3a8,Fire Insurance Exchange
+4912,Victor Insurance Managers Inc.,none,0.442,,
+4918,Wealth Design Group LLC,none,0.218,,
+4919,Wellington Risk,none,0.295,,
+3649,Wesco Insurance Co,exact,1.0,wesco_insurance_company_new_york_ecfc88,Wesco Insurance Company
+4206,West American Insurance Co.,exact,1.0,insurance_company_of_the_west_san_diego_4c2264,Insurance Company of the West
+3807,WestGUARD Ins Co,exact,1.0,westguard_philadelphia_17ea07,WestGUARD
+3883,Westchester Surplus Line Insurance Co,weak,0.692,westchester_surplus_lines_insurance_philadelphia_6c7d43,Westchester Surplus Lines Insurance
+3978,Westchester Surplus Lines Insurance Co,exact,1.0,westchester_surplus_lines_insurance_philadelphia_6c7d43,Westchester Surplus Lines Insurance
+4651,Wilshire Ins Co,none,0.267,,
+4927,Worth Casualty Company,exact,1.0,worth_casualty_company_fort_worth_b7e1b4,Worth Casualty Company
+4938,Wright Flood (Fidelity National),weak,0.691,wright_national_flood_st_petersburg_71e3ea,Wright National Flood
+4939,Wright National Flood Insurance,exact,1.0,wright_national_flood_st_petersburg_71e3ea,Wright National Flood
+4943,Zurich North America,exact,1.0,zurich_north_america_insurance_company_schaumburg_24aaf9,Zurich North America Insurance Company
+4959,Zurich-American Insurance Company,exact,1.0,american_zurich_insurance_company_schaumburg_fbd926,American Zurich Insurance Company
+4960,Zurich-American Insurance Company of Illinois,weak,0.578,illinois_casualty_company_rock_island_e0cbdf,Illinois Casualty Company
