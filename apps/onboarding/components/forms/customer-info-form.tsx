@@ -100,7 +100,7 @@ export function CustomerInfoForm({ submissionUuid, customer, submission }: Props
       for (const [name, setter] of Object.entries(setters)) {
         const el = form.elements.namedItem(name) as HTMLInputElement | null;
         const value = el?.value ?? "";
-        if (value) setter((prev) => (prev === value ? prev : value));
+        if (value) setter(value);
       }
     };
     // Run twice: once immediately, once after Chrome's delayed autofill pass.
