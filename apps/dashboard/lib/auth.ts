@@ -18,11 +18,16 @@ async function defaultBroker() {
 // Resolve the canonical base URL. An explicit DASHBOARD_BASE_URL (a real custom
 // domain) always wins; otherwise fall back to Vercel's auto-provided production
 // URL so we don't have to hardcode the (often truncated) *.vercel.app hostname.
-const baseURL =
+const rawBaseURL =
   process.env.DASHBOARD_BASE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3001");
+// Tolerate a scheme-less DASHBOARD_BASE_URL (e.g. "admin.insureinvestors.com");
+// Better Auth needs a full URL or `new URL()` throws ERR_INVALID_URL.
+const baseURL = /^https?:\/\//.test(rawBaseURL)
+  ? rawBaseURL
+  : `https://${rawBaseURL}`;
 
 // Trust the current deployment's own origin too, so Vercel preview deployments
 // (whose hostname differs from the stable production URL) pass the origin check.
