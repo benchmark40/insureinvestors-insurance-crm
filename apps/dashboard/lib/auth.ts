@@ -15,10 +15,29 @@ async function defaultBroker() {
   });
 }
 
+// Resolve the canonical base URL. An explicit DASHBOARD_BASE_URL (a real custom
+// domain) always wins; otherwise fall back to Vercel's auto-provided production
+// URL so we don't have to hardcode the (often truncated) *.vercel.app hostname.
+const baseURL =
+  process.env.DASHBOARD_BASE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3001");
+
+// Trust the current deployment's own origin too, so Vercel preview deployments
+// (whose hostname differs from the stable production URL) pass the origin check.
+const trustedOrigins = [
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+  process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : null,
+].filter((v): v is string => Boolean(v));
+
 export const auth = betterAuth({
   // Without an explicit base URL Better Auth warns and its callbacks/redirects
   // can misbehave in server actions where there's no request to derive it from.
-  baseURL: process.env.DASHBOARD_BASE_URL ?? "http://localhost:3001",
+  baseURL,
+  trustedOrigins,
   database: prismaAdapter(db, { provider: "postgresql" }),
   emailAndPassword: {
     enabled: true,
