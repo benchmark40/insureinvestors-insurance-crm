@@ -362,6 +362,9 @@ export default async function SubmissionDetailPage({
             submissionUuid={submission.uuid}
             submission={{
               businessDescription: submission.businessDescription,
+              additionalInsuredNames: submission.additionalInsuredNames,
+              certificatesOfInsuranceNotes:
+                submission.certificatesOfInsuranceNotes,
               hasPriorLosses5y: submission.hasPriorLosses5y,
               hasBankruptcy5y: submission.hasBankruptcy5y,
               hasIndictmentsOrConvictions:

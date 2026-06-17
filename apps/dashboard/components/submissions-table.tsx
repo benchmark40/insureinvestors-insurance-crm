@@ -213,7 +213,7 @@ export function SubmissionsTable({ rows }: { rows: SubmissionRow[] }) {
               </button>
             )}
           </div>
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
+          <Select value={statusFilter} onValueChange={(v) => setStatusFilter(v ?? ALL)}>
             <SelectTrigger className="w-full sm:w-40">
               <SelectValue placeholder="Status">
                 {(value) => (value === ALL ? "All statuses" : value)}
@@ -229,7 +229,7 @@ export function SubmissionsTable({ rows }: { rows: SubmissionRow[] }) {
             </SelectContent>
           </Select>
           {lobOptions.length > 0 && (
-            <Select value={lobFilter} onValueChange={setLobFilter}>
+            <Select value={lobFilter} onValueChange={(v) => setLobFilter(v ?? ALL)}>
               <SelectTrigger className="w-full sm:w-40">
                 <SelectValue placeholder="Line of business">
                   {(value) => (value === ALL ? "All lines" : value)}

@@ -58,7 +58,10 @@ type SubmissionFlags = Record<string, boolean | string> & {
   certificatesOfInsuranceNotes: string;
 };
 
-type LocationFlags = Record<string, boolean | string | null> & {
+type LocationFlags = Record<
+  string,
+  boolean | string | number | null | BuildingFlags[]
+> & {
   id: number;
   uuid: string;
   locationNumber: number;
@@ -343,7 +346,7 @@ function LocationCard({ location }: { location: LocationFlags }) {
               </FieldDescription>
               <Select
                 value={(values.occupancyClass as string) || "none"}
-                onValueChange={setOccupancyClass}
+                onValueChange={(v) => setOccupancyClass(v ?? "")}
               >
                 <SelectTrigger id={`occ-${location.id}`}>
                   <SelectValue placeholder="Pick an occupancy class" />
