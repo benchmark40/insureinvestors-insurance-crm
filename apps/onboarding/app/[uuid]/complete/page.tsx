@@ -1,18 +1,8 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
 
+import { Icon } from "@/components/portfolio/bm-ui";
+import { PortfolioShell } from "@/components/portfolio/shell";
 import { ClientAccountPrompt } from "@/components/client-account-prompt";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/components/ui/empty";
 import { getOnboardingAccountState } from "@/lib/actions/client";
 import { getSubmissionByUuid } from "@/lib/actions/submissions";
 
@@ -35,46 +25,36 @@ export default async function CompletePage({
   );
 
   return (
-    <main className="mx-auto max-w-xl px-6 py-20">
-        <Empty>
-          <EmptyHeader>
-            <EmptyMedia variant="icon">
-              <CheckCircle2 />
-            </EmptyMedia>
-            <EmptyTitle>Submission received</EmptyTitle>
-            <EmptyDescription>
-              We have your details and we&apos;re reaching out to our carriers
-              now. You&apos;ll hear back from your broker with quotes shortly.
-            </EmptyDescription>
-          </EmptyHeader>
-          <EmptyContent className="gap-4">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <Badge variant="secondary" className="font-mono">
-                #{submission.uuid.slice(0, 8)}
-              </Badge>
-              <Badge variant="outline">
-                {submission.locations.length} propert
-                {submission.locations.length === 1 ? "y" : "ies"}
-              </Badge>
-              <Badge variant="outline">
-                {buildingCount} building{buildingCount === 1 ? "" : "s"}
-              </Badge>
-            </div>
-            <ClientAccountPrompt
-              email={submission.customer.email}
-              exists={accountState.exists}
-              signedIn={!!accountState.clientSession}
-              link={{ kind: "submission", uuid: submission.uuid }}
-            />
-            <Button
-              variant="outline"
-              nativeButton={false}
-              render={<Link href="/" />}
-            >
-              Back to home
-            </Button>
-          </EmptyContent>
-        </Empty>
-    </main>
+    <PortfolioShell>
+      <div className="done">
+        <span className="done__check">
+          <Icon name="check" size={34} stroke={2.6} />
+        </span>
+        <h2 className="done__t">Your portfolio quote is on its way</h2>
+        <p className="done__d">
+          A Benchmark advisor will review your {submission.locations.length}
+          {"-"}property schedule ({buildingCount} building
+          {buildingCount === 1 ? "" : "s"}) and send firm numbers within one
+          business day
+          {submission.customer.email ? (
+            <>
+              {" "}
+              to <b>{submission.customer.email}</b>
+            </>
+          ) : null}
+          .
+        </p>
+        <div className="done__ref">Reference · {submission.uuid.slice(0, 8).toUpperCase()}</div>
+
+        <div className="done__account">
+          <ClientAccountPrompt
+            email={submission.customer.email}
+            exists={accountState.exists}
+            signedIn={!!accountState.clientSession}
+            link={{ kind: "submission", uuid: submission.uuid }}
+          />
+        </div>
+      </div>
+    </PortfolioShell>
   );
 }

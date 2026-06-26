@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
-import { SnapshotForm } from "@/components/forms/snapshot-form";
-import { StepIndicator } from "@/components/step-indicator";
+import { CheckoutSnapshot } from "@/components/portfolio/checkout-snapshot";
+import { PortfolioShell } from "@/components/portfolio/shell";
 import { getSubmissionByUuid } from "@/lib/actions/submissions";
 
 export default async function QuotingSnapshotPage({
@@ -13,33 +13,41 @@ export default async function QuotingSnapshotPage({
   const submission = await getSubmissionByUuid(uuid);
   if (!submission) notFound();
 
+  const c = submission.customer;
+  const contactName =
+    `${c.firstName ?? ""} ${c.lastName ?? ""}`.trim() || c.businessName || "";
+
+  const properties = submission.locations.map((loc) => {
+    const b = loc.buildings[0];
+    return {
+      line1: loc.addressLine1,
+      use: b?.propertyUsage ?? "",
+      tiv: b?.insurableValue ? b.insurableValue.toString() : "",
+    };
+  });
+
   return (
-    <>
-      <StepIndicator current="quoting-snapshot" />
-      <main className="mx-auto max-w-2xl px-6 pb-20">
-        <div className="mb-8">
-          <h1 className="text-3xl font-semibold tracking-tight">
-            Almost done — a few last questions
-          </h1>
-          <p className="text-muted-foreground mt-2">
-            Prior coverage and claims history help us route your submission to
-            the right carriers.
-          </p>
-        </div>
-        <SnapshotForm
-          submissionUuid={submission.uuid}
-          submission={{
-            hasPriorCoverage: submission.hasPriorCoverage,
-            priorCarrier: submission.priorCarrier,
-            priorExpirationDate: submission.priorExpirationDate
-              ? submission.priorExpirationDate.toISOString().split("T")[0] ??
-                null
-              : null,
-            claimsInLast5Years: submission.claimsInLast5Years,
-            priorClaimsMoldOrAsbestos: submission.priorClaimsMoldOrAsbestos,
-          }}
-        />
-      </main>
-    </>
+    <PortfolioShell startOver>
+      <CheckoutSnapshot
+        submissionUuid={submission.uuid}
+        customer={{
+          uuid: c.uuid,
+          name: contactName,
+          email: c.email ?? "",
+          phone: c.phone ?? "",
+          entity: c.businessName ?? "",
+        }}
+        snapshot={{
+          hasPriorCoverage: submission.hasPriorCoverage,
+          priorCarrier: submission.priorCarrier,
+          priorExpirationDate: submission.priorExpirationDate
+            ? (submission.priorExpirationDate.toISOString().split("T")[0] ?? null)
+            : null,
+          claimsInLast5Years: submission.claimsInLast5Years,
+          priorClaimsMoldOrAsbestos: submission.priorClaimsMoldOrAsbestos,
+        }}
+        properties={properties}
+      />
+    </PortfolioShell>
   );
 }

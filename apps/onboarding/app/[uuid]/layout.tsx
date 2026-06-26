@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 
-import { SessionHeader } from "@/components/session-header";
 import { getSubmissionByUuid } from "@/lib/actions/submissions";
 
+// The Property Portfolio Quote flow provides its own chrome (PortfolioShell),
+// so the flow layout only guards the submission and passes children through.
 export default async function FlowLayout({
   children,
   params,
@@ -14,10 +15,5 @@ export default async function FlowLayout({
   const submission = await getSubmissionByUuid(uuid);
   if (!submission) notFound();
 
-  return (
-    <>
-      <SessionHeader />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import "./portfolio.css";
 
 export const metadata: Metadata = {
-  title: "InsureInvestors — Get a Quote",
-  description: "Property insurance quoting in minutes.",
+  title: "Benchmark — Property Portfolio Quote",
+  description: "Quote your property portfolio, one address at a time.",
 };
 
 export default function RootLayout({
